@@ -30,6 +30,9 @@ namespace InputSystem
         
         public delegate void Shoot();
         public event Shoot OnShoot;
+        
+        public delegate void Reload();
+        public event Reload OnReload;
 
         private void Awake()
         {
@@ -48,8 +51,7 @@ namespace InputSystem
 
         public void ReadMoveDirection(InputAction.CallbackContext _context)
         {
-            moveDirection = _context.ReadValue<Vector2>();  
-            Debug.Log(moveDirection);
+            moveDirection = _context.ReadValue<Vector2>();
         }
 
         public void ReadTargetDirection(InputAction.CallbackContext _context)
@@ -65,6 +67,12 @@ namespace InputSystem
         {
             if (_context.performed)
                 OnShoot?.Invoke();
+        }
+        
+        public void ReadReloadAction(InputAction.CallbackContext _context)
+        {
+            if (_context.performed)
+                OnReload?.Invoke();
         }
     }
 }

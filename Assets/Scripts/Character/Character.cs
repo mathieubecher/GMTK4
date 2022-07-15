@@ -12,20 +12,27 @@ public class Character : MonoBehaviour
     [SerializeField] private float m_moveSpeed = 3f;
 
     [Header("Shoot")] 
+    [SerializeField] private int m_magazineSize = 6;
+    [SerializeField] private float m_shootCooldown = 0.1f;
+    [SerializeField] private float m_reloadDuration = 0.5f;
+    [Header("Shoot Spawn")] 
     [SerializeField] private Target m_target;
     [SerializeField] private GameObject m_bullet;
     [SerializeField] private float m_offsetBulletAtSpawn = 0.6f;
-    [SerializeField] private int m_magazineSize = 6;
     
     private int m_leftBullet;
+    private bool m_canShoot = true;
     void OnEnable()
     {
         m_controller = GetComponent<Controller>();
         m_controller.OnShoot += Shoot;
+        m_controller.OnReload += Reload;
     }
+
     void OnDisable()
     {
         m_controller.OnShoot -= Shoot;
+        m_controller.OnReload -= Reload;
     }
     void Awake()
     {
@@ -42,12 +49,39 @@ public class Character : MonoBehaviour
 
     void Shoot()
     {
-        if (m_leftBullet <= 0)
+        if (m_leftBullet <= 0 || !m_canShoot)
             return;
         
         --m_leftBullet;
         GameObject gameObjectRef = Instantiate(m_bullet);
         gameObjectRef.transform.position = transform.position + (Vector3)m_target.direction * m_offsetBulletAtSpawn;
         gameObjectRef.GetComponent<Bullet>().SetDirection(m_target.direction);
+
+        IEnumerator coroutine = Wait(m_shootCooldown);
+        if (m_leftBullet == 0)
+        {
+            m_leftBullet = m_magazineSize;
+            coroutine = Wait(m_reloadDuration);
+        }
+        
+        StartCoroutine(coroutine);
+        
+    }
+
+    private void Reload()
+    {
+        if (m_leftBullet == m_magazineSize || !m_canShoot)
+            return; 
+        
+        m_leftBullet = m_magazineSize;
+        IEnumerator coroutine = Wait(m_reloadDuration);
+        StartCoroutine(coroutine);
+    }
+
+    IEnumerator Wait(float _duration)
+    {
+        m_canShoot = false;
+        yield return new WaitForSeconds(_duration);
+        m_canShoot = true;
     }
 }

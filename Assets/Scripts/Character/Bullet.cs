@@ -18,4 +18,9 @@ public class Bullet : MonoBehaviour
     {
         m_rigidbody.velocity = direction * m_speed;
     }
+
+    public void OnTriggerEnter2D(Collider2D col)
+    {
+        Destroy(gameObject);
+    }
 }
