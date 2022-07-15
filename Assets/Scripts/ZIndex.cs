@@ -15,7 +15,7 @@ public class ZIndex : MonoBehaviour
         int y = -(int)Mathf.Floor(transform.position.y * 10) * 10;
         foreach(var sprite in m_sprites)
         {
-            sprite.sortingOrder = y + (10 - sprite.sortingOrder%10);
+            sprite.sortingOrder = y + (sprite.sortingOrder%10);
         }
     }
 }
