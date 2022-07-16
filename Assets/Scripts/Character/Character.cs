@@ -23,6 +23,13 @@ public class Character : MonoBehaviour
     private int m_leftBullet;
     private bool m_canShoot = true;
     [HideInInspector] public bool stop;
+    
+    
+    public delegate void ShootAction(int _bullet);
+    public event ShootAction OnShoot;
+    
+    public delegate void ReloadAction();
+    public event ReloadAction OnReload;
 
     void OnEnable()
     {
@@ -66,13 +73,15 @@ public class Character : MonoBehaviour
         gameObjectRef.transform.position = transform.position + (Vector3)m_target.direction * m_offsetBulletAtSpawn;
         gameObjectRef.GetComponent<Bullet>().SetDirection(m_target.direction);
 
-        IEnumerator coroutine = Wait(m_shootCooldown);
+        OnShoot?.Invoke(m_leftBullet);
+        
         if (m_leftBullet == 0)
         {
-            m_leftBullet = m_magazineSize;
-            coroutine = Wait(m_reloadDuration);
+            Reload();
+            return;
         }
         
+        IEnumerator coroutine = Wait(m_shootCooldown);
         StartCoroutine(coroutine);
         
     }
@@ -84,6 +93,7 @@ public class Character : MonoBehaviour
         if (m_leftBullet == m_magazineSize || !m_canShoot)
             return; 
         
+        OnReload?.Invoke();
         m_leftBullet = m_magazineSize;
         IEnumerator coroutine = Wait(m_reloadDuration);
         StartCoroutine(coroutine);

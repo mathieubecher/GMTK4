@@ -228,6 +228,7 @@ MonoBehaviour:
   m_target: {fileID: 0}
   m_bullet: {fileID: 7245288453134482506, guid: 4443cbde074356140ba77feda319532a, type: 3}
   m_offsetBulletAtSpawn: 0.6
+  stop: 0
 --- !u!114 &3236174796075854434
 MonoBehaviour:
   m_ObjectHideFlags: 0
