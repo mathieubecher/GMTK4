@@ -1,19 +1,21 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Zombi : Hitable
 {
-    public float m_hitSpeed = 1f;
-    public float m_hitDuration = 1f;
+    [SerializeField] private float m_defaultSpeed = 1f;
+    [SerializeField] private float m_hitSpeed = 1f;
+    [SerializeField] private float m_hitDuration = 1f;
     
     private Rigidbody2D m_rigidbody;
     [HideInInspector] public bool stop;
+    private int m_diceScore = 1;
+    private Character m_character;
 
     private void Awake()
     {
         m_rigidbody = GetComponent<Rigidbody2D>();
+        m_character = FindObjectOfType<Character>();
     }
 
     private void Update()
@@ -22,8 +24,10 @@ public class Zombi : Hitable
         {
             return;
         }
-        
-        m_rigidbody.velocity = Vector2.zero;
+
+        Vector3 desiredDirection = m_character.transform.position - transform.position;
+        desiredDirection.Normalize();
+        m_rigidbody.velocity = desiredDirection * (m_defaultSpeed * (float)m_diceScore);
     }
 
     public override void Hit(Bullet _bullet)
@@ -41,6 +45,7 @@ public class Zombi : Hitable
         stop = true;
         m_rigidbody.velocity = _direction * m_hitSpeed;
         yield return new WaitForSeconds(m_hitDuration);
+        m_diceScore = Random.Range(1,6);
         stop = false;
     }
 }
