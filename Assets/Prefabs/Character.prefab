@@ -410,6 +410,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab4a245176323c4bb6590db44e7ccc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_moveFoley:
+    m_eventReference:
+      Guid:
+        Data1: 238254798
+        Data2: 1235510465
+        Data3: -1356016222
+        Data4: 220842702
+      Path: event:/Foleys/MC/Fol_MC_Move
   m_drinkVoice:
     m_eventReference:
       Guid:
@@ -490,6 +498,22 @@ MonoBehaviour:
         Data3: 1086653107
         Data4: 1162629615
       Path: event:/Foleys/Door/Fol_Door_Open
+  m_beerTake:
+    m_eventReference:
+      Guid:
+        Data1: -945921956
+        Data2: 1258239337
+        Data3: 1819656324
+        Data4: -854411686
+      Path: event:/Foleys/Beer/Fol_Beer_Grab
+  m_beerSet:
+    m_eventReference:
+      Guid:
+        Data1: -121457184
+        Data2: 1180092619
+        Data3: 178864814
+        Data4: 90239548
+      Path: event:/Foleys/Beer/Fol_Beer_Set
 --- !u!114 &8623618596457602444
 MonoBehaviour:
   m_ObjectHideFlags: 0

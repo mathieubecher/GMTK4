@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CharacterAudio : MonoBehaviour
 {
+    [Header("Character Foleys")]
+    [SerializeField] private AudioEvent m_moveFoley;
+
     [Header("Character Voices")]
     [SerializeField] private AudioEvent m_drinkVoice;
     [SerializeField] private AudioEvent m_beerFinishedVoice;
@@ -61,6 +64,7 @@ public class CharacterAudio : MonoBehaviour
         }
         m_beerComboTimer = 2f;
         m_beerComboCurrentTime = 0f;
+        m_moveFoley.Play(gameObject);
     }
 
     private void Update()
@@ -76,6 +80,8 @@ public class CharacterAudio : MonoBehaviour
         }
         else if (m_beerComboCurrentTime != 0)
             m_beerComboCurrentTime = 0;
+        m_moveFoley.SetParameter("EntitySpeed", m_character.currentSpeed / 4f);
+        Debug.Log($"Speed = {m_character.currentSpeed}");
     }
 
     private void OnBeerEmpty(Beer _beer)

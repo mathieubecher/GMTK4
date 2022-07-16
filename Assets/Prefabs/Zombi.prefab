@@ -688,6 +688,14 @@ MonoBehaviour:
         Data3: -1898354000
         Data4: -1305069154
       Path: event:/Foleys/Bullet/Fol_Bullet_Impact_Dice
+  m_moveFoley:
+    m_eventReference:
+      Guid:
+        Data1: -178709428
+        Data2: 1197121896
+        Data3: -1688931910
+        Data4: -106876564
+      Path: event:/Foleys/Dice/Fol_Dice_Move
   m_attackSFX:
     m_eventReference:
       Guid:

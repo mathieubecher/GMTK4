@@ -6,6 +6,7 @@ public class ZombiAudio : MonoBehaviour
 {
     [Header("Foleys")]
     [SerializeField] private AudioEvent m_impactFoley;
+    [SerializeField] private AudioEvent m_moveFoley;
 
     [Header("SFX")]
     [SerializeField] private AudioEvent m_attackSFX;
@@ -40,6 +41,7 @@ public class ZombiAudio : MonoBehaviour
             Bullet.OnHitObject += Bullet_OnHitObject;
         }
         m_charT = FindObjectOfType<Character>().transform;
+        m_moveFoley.Play(gameObject);
     }
 
     private void Update()
@@ -47,15 +49,14 @@ public class ZombiAudio : MonoBehaviour
         m_currentDist = (m_charT.position - transform.position).magnitude;
         if (m_currentDist < m_dangerZoneDist && !m_isInDangerZone)
         {
-            Debug.Log("Enter danger zone");
             m_isInDangerZone = true;
             m_nearSFX.PlayOneShot(gameObject);
         }
         if (m_currentDist > m_dangerZoneDist + 1 && m_isInDangerZone)
         {
-            Debug.Log("Exit danger zone");
             m_isInDangerZone = false;
         }
+        m_moveFoley.SetParameter("EntitySpeed", m_zombi.currentSpeed / 6f);
     }
 
     private void Bullet_OnHitObject(Bullet _bullet, Hitable _hit)
