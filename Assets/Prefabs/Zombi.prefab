@@ -490,7 +490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2abf0567e064cb44485b1707c540ba3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_dotsFace1:
+  m_dotsFaceLeft:
   - {fileID: 6793512655631943577}
   - {fileID: 3703966277135682335}
   - {fileID: 373510191524219513}
@@ -500,7 +500,7 @@ MonoBehaviour:
   - {fileID: 4492091008846500291}
   - {fileID: 5143239750387158654}
   - {fileID: 741039869720965334}
-  m_dotsFace2:
+  m_dotsFaceRight:
   - {fileID: 1409714266744138745}
   - {fileID: 7352118897206194537}
   - {fileID: 7186982912533530636}
@@ -510,7 +510,7 @@ MonoBehaviour:
   - {fileID: 2347510318055863192}
   - {fileID: 4485886803107132923}
   - {fileID: 2333274388540555953}
-  m_dotsFace3:
+  m_dotsFaceUp:
   - {fileID: 2929010957496121311}
   - {fileID: 738617581918778560}
   - {fileID: 7247507191391279806}
@@ -534,6 +534,7 @@ GameObject:
   - component: {fileID: 524667403620231350}
   - component: {fileID: 1168067540176645107}
   - component: {fileID: 7273736045584372560}
+  - component: {fileID: 6077077859430258916}
   m_Layer: 7
   m_Name: Zombi
   m_TagString: Untagged
@@ -667,6 +668,58 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &6077077859430258916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168067540176645106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 598ed9f847b8bd94da107f1144b7ae02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_impactFoley:
+    m_eventReference:
+      Guid:
+        Data1: 63601099
+        Data2: 1175722175
+        Data3: -1898354000
+        Data4: -1305069154
+      Path: event:/Foleys/Bullet/Fol_Bullet_Impact_Dice
+  m_attackSFX:
+    m_eventReference:
+      Guid:
+        Data1: 1279111290
+        Data2: 1246693336
+        Data3: 1146214272
+        Data4: -1805354492
+      Path: event:/Foleys/Dice/Fol_Dice_Attack
+  m_hitSFX:
+    m_eventReference:
+      Guid:
+        Data1: 1372141963
+        Data2: 1272950932
+        Data3: 1715532167
+        Data4: 474740831
+      Path: event:/Foleys/Dice/Fol_Dice_Hit
+  m_nearSFX:
+    m_eventReference:
+      Guid:
+        Data1: -990524845
+        Data2: 1323573204
+        Data3: -1789046135
+        Data4: 2081002484
+      Path: event:/Foleys/Dice/Fol_Dice_Near
+  m_hitMarkerFB:
+    m_eventReference:
+      Guid:
+        Data1: 343953459
+        Data2: 1209248173
+        Data3: 1465950366
+        Data4: 1208290048
+      Path: event:/SFX/SFX_FB_HitMarker
 --- !u!1 &1181550460645585331
 GameObject:
   m_ObjectHideFlags: 0
