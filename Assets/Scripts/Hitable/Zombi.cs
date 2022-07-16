@@ -43,6 +43,7 @@ public class Zombi : Hitable
         m_rigidbody = GetComponent<Rigidbody2D>();
         m_character = FindObjectOfType<Character>();
         m_seeker = FindObjectOfType<Seeker>();
+        m_diceGestor.Draw(m_diceScore);
 
         RefreshPath();
     }
@@ -52,7 +53,6 @@ public class Zombi : Hitable
         Door.OnDoorExit += DisableZombi;
         m_character.OnDamaged += CharacterDamage;
         m_character.OnDead += DisableZombi;
-        GetComponentInChildren<DiceGestor>().Draw(m_diceScore, DiceGestor.RotationFaceUp.Rotate90);
     }
 
 
@@ -92,7 +92,7 @@ public class Zombi : Hitable
     {
         if (_path.error) return;
         m_path = new List<Vector3>(_path.vectorPath);
-        m_currentWaypoint = 0;
+        m_currentWaypoint = m_path.Count > 1 ? 1 : 0;
         m_lastTimeRefresh = m_refreshPathFrequency;
 
     }
@@ -127,7 +127,7 @@ public class Zombi : Hitable
         if (m_lastTimeRefresh <= 0f) RefreshPath();
         else if (m_path == null)
         {
-            m_rigidbody.velocity = Vector2.zero;
+            //m_rigidbody.velocity = Vector2.zero;
             return;
         }
         else if (m_currentWaypoint >= m_path.Count)
@@ -154,7 +154,10 @@ public class Zombi : Hitable
             Vector2 desiredVelocity = desiredDirection * maxSpeed;
             m_rigidbody.velocity = desiredVelocity;
 
-            if (distance < m_nextWaypointDistance) ++m_currentWaypoint;
+            if (distance < m_nextWaypointDistance)
+            {
+                ++m_currentWaypoint;
+            }
         }
 
     }
@@ -172,13 +175,13 @@ public class Zombi : Hitable
     private IEnumerator Stun(Vector3 _direction)
     {
         stop = true;
-        m_diceGestor.Hide();
         EnableZombi();
         gameObject.layer = LayerMask.NameToLayer("PhysicZombi");
         m_rigidbody.velocity = _direction * m_hitSpeed;
         yield return new WaitForSeconds(m_hitDuration);
-        m_diceScore = Random.Range(1, 7);
-        m_diceGestor.Draw( m_diceScore, DiceGestor.RotationFaceUp.Rotate90);
+        
+        m_diceScore = m_diceGestor.Roll(((m_rigidbody.velocity.x < 0.0f && m_rigidbody.velocity.y < 0.0f) ||
+                                         (m_rigidbody.velocity.x > 0.0f && m_rigidbody.velocity.y > 0.0f)));
         m_tmpDiceScoreDisplay.text = "" + m_diceScore;
         stop = false;
         gameObject.layer = LayerMask.NameToLayer("Zombi");
