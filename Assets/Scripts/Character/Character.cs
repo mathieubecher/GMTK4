@@ -22,7 +22,6 @@ public class Character : MonoBehaviour
     [Header("Life")] 
     [SerializeField] private float m_invunerabilityDuration = 1.0f;
     [SerializeField] private int m_life = 3;
-    public int life { get => m_life; }
 
     private int m_leftBullet;
     private bool m_canShoot = true;
@@ -42,6 +41,12 @@ public class Character : MonoBehaviour
     public delegate void DeadAction();
     public event DeadAction OnDead;
 
+    //getter
+    public int life { get => m_life; }
+    public float maxSpeed { get => m_moveSpeed; }
+    public float currentSpeed { get => m_rigidbody.velocity.magnitude; }
+    public int leftBullet { get => m_leftBullet; }
+    
     void OnEnable()
     {
         m_controller = GetComponent<Controller>();

@@ -11,28 +11,30 @@ public class Zombi : Hitable
     [SerializeField] private TextMeshPro m_tmpDiceScoreDisplay;
     [SerializeField] private Animator m_bodyAnimator;
     [SerializeField] private Animator m_headAnimator;
-    
+
     [HideInInspector] public bool stop;
-    
-    [Header("AI")]
-    [SerializeField] private float m_defaultSpeed = 1f;
+
+    [Header("AI")] [SerializeField] private float m_defaultSpeed = 1f;
     [SerializeField] private float m_nextWaypointDistance = 1f;
     [SerializeField] private float m_refreshPathFrequency = 1f;
-    
-    [Header("Hit")]
-    [SerializeField] private float m_hitSpeed = 1f;
+
+    [Header("Hit")] [SerializeField] private float m_hitSpeed = 1f;
     [SerializeField] private float m_hitDuration = 1f;
-    
+
     // private
     private int m_diceScore = 1;
-    
+
     private List<Vector3> m_path;
     private Seeker m_seeker;
     private int m_currentWaypoint = 0;
     private float m_lastTimeRefresh;
-    
+
     private Character m_character;
     private Rigidbody2D m_rigidbody;
+
+    //getter
+    public float maxSpeed { get => m_diceScore * m_defaultSpeed; }
+    public float currentSpeed { get => m_rigidbody.velocity.magnitude; }
 
     private void Awake()
     {
@@ -90,6 +92,7 @@ public class Zombi : Hitable
         m_lastTimeRefresh = m_refreshPathFrequency;
 
     }
+
     private void RefreshPath()
     {
         m_lastTimeRefresh = 0.5f;
@@ -105,7 +108,7 @@ public class Zombi : Hitable
     {
         m_bodyAnimator.SetFloat("x", (stop ? -1f : 1f) * m_rigidbody.velocity.x);
         m_bodyAnimator.SetFloat("y", (stop ? -1f : 1f) * m_rigidbody.velocity.y);
-        
+
         m_headAnimator.SetFloat("x", m_rigidbody.velocity.x);
         m_headAnimator.SetFloat("y", m_rigidbody.velocity.y);
         m_headAnimator.SetBool("roll", stop);
@@ -114,10 +117,10 @@ public class Zombi : Hitable
     private void FixedUpdate()
     {
         if (stop) return;
-        
+
         m_lastTimeRefresh -= Time.deltaTime;
-        
-        if(m_lastTimeRefresh <= 0f) RefreshPath();
+
+        if (m_lastTimeRefresh <= 0f) RefreshPath();
         else if (m_path == null)
         {
             m_rigidbody.velocity = Vector2.zero;
@@ -127,14 +130,14 @@ public class Zombi : Hitable
         {
             Vector2 desiredDirection = (Vector2)m_character.transform.position - m_rigidbody.position;
             float distance = desiredDirection.magnitude;
-            float desiredSpeed = (m_defaultSpeed * (float)m_diceScore);
+            float desiredSpeed = maxSpeed;
             desiredDirection.Normalize();
             if (distance < desiredSpeed * Time.deltaTime)
             {
                 desiredSpeed = distance / Time.deltaTime;
             }
 
-            m_rigidbody.velocity = desiredDirection * GetSpeed();
+            m_rigidbody.velocity = desiredDirection * maxSpeed;
 
             RefreshPath();
         }
@@ -144,7 +147,7 @@ public class Zombi : Hitable
             float distance = desiredDirection.magnitude;
             desiredDirection.Normalize();
 
-            Vector2 desiredVelocity = desiredDirection * (m_defaultSpeed * (float)m_diceScore);
+            Vector2 desiredVelocity = desiredDirection * maxSpeed;
             m_rigidbody.velocity = desiredVelocity;
 
             if (distance < m_nextWaypointDistance) ++m_currentWaypoint;
@@ -155,7 +158,7 @@ public class Zombi : Hitable
     public override void Hit(Bullet _bullet)
     {
         if (stop) return;
-        
+
         Vector3 direction = _bullet.GetComponent<Rigidbody2D>().velocity;
         direction.Normalize();
         IEnumerator coroutine = Stun(direction);
@@ -170,15 +173,10 @@ public class Zombi : Hitable
         gameObject.layer = LayerMask.NameToLayer("PhysicZombi");
         m_rigidbody.velocity = _direction * m_hitSpeed;
         yield return new WaitForSeconds(m_hitDuration);
-        m_diceScore = Random.Range(1,6);
-        m_tmpDiceScoreDisplay.text = ""+m_diceScore;
+        m_diceScore = Random.Range(1, 6);
+        m_tmpDiceScoreDisplay.text = "" + m_diceScore;
         stop = false;
         gameObject.layer = LayerMask.NameToLayer("Zombi");
         RefreshPath();
-    }
-
-    public float GetSpeed()
-    {
-        return (m_defaultSpeed * (float)m_diceScore);
     }
 }
