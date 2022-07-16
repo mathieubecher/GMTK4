@@ -6,6 +6,7 @@ using Pathfinding;
 public class Zombi : Hitable
 {
     [SerializeField] private TextMeshPro m_tmpDiceScoreDisplay;
+    [SerializeField] private Collider2D m_collider;
     
     [HideInInspector] public bool stop;
     
@@ -29,7 +30,6 @@ public class Zombi : Hitable
     
     private Character m_character;
     private Rigidbody2D m_rigidbody;
-
     private void Awake()
     {
         m_rigidbody = GetComponent<Rigidbody2D>();
@@ -110,11 +110,13 @@ public class Zombi : Hitable
     private IEnumerator Stun(Vector3 _direction)
     {
         stop = true;
+        gameObject.layer = LayerMask.NameToLayer("PhysicZombi");
         m_rigidbody.velocity = _direction * m_hitSpeed;
         yield return new WaitForSeconds(m_hitDuration);
         m_diceScore = Random.Range(1,6);
         m_tmpDiceScoreDisplay.text = ""+m_diceScore;
         stop = false;
+        gameObject.layer = LayerMask.NameToLayer("Zombi");
         RefreshPath();
     }
 }

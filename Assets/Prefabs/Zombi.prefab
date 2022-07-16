@@ -136,6 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_tmpDiceScoreDisplay: {fileID: 998382221195638042}
+  m_collider: {fileID: 1168067540176645107}
   stop: 0
   m_defaultSpeed: 1
   m_nextWaypointDistance: 0.1
