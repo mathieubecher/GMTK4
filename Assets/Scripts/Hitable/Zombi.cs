@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class Zombi : Hitable
@@ -6,6 +7,7 @@ public class Zombi : Hitable
     [SerializeField] private float m_defaultSpeed = 1f;
     [SerializeField] private float m_hitSpeed = 1f;
     [SerializeField] private float m_hitDuration = 1f;
+    [SerializeField] private TextMeshPro m_tmpDiceScoreDisplay;
     
     private Rigidbody2D m_rigidbody;
     [HideInInspector] public bool stop;
@@ -46,6 +48,7 @@ public class Zombi : Hitable
         m_rigidbody.velocity = _direction * m_hitSpeed;
         yield return new WaitForSeconds(m_hitDuration);
         m_diceScore = Random.Range(1,6);
+        m_tmpDiceScoreDisplay.text = ""+m_diceScore;
         stop = false;
     }
 }
