@@ -81,7 +81,6 @@ public class CharacterAudio : MonoBehaviour
         else if (m_beerComboCurrentTime != 0)
             m_beerComboCurrentTime = 0;
         m_moveFoley.SetParameter("EntitySpeed", m_character.currentSpeed / 4f);
-        Debug.Log($"Speed = {m_character.currentSpeed}");
     }
 
     private void OnBeerEmpty(Beer _beer)
