@@ -18,6 +18,6 @@ public class Beer : Interact
 
     public override void InteractAction(InteractSystem _interactSystem)
     {
-        Debug.Log("Interact");
+        base.InteractAction(_interactSystem);
     }
 }

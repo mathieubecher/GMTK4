@@ -6,8 +6,12 @@ using UnityEngine;
 
 public class InteractSystem : MonoBehaviour
 {
+    private Character m_character;
+    
     private Interact m_interact;
     private bool m_hasInteract;
+
+    private bool m_canInteract = true;
     private Controller m_controller;
 
     void OnEnable()
@@ -19,6 +23,11 @@ public class InteractSystem : MonoBehaviour
     void OnDisable()
     {
         m_controller.OnInteract -= Interact;
+    }
+
+    private void Awake()
+    {
+        m_character = GetComponent<Character>();
     }
 
     public void OnTriggerEnter2D(Collider2D _other)
@@ -49,9 +58,20 @@ public class InteractSystem : MonoBehaviour
 
     private void Interact()
     {
-        if (m_hasInteract)
+        if (m_hasInteract && m_canInteract)
         {
             m_interact.InteractAction(this);
         }
+    }
+
+    public IEnumerator OnInteract(float _duration, bool _stopCharacter)
+    {
+        m_canInteract = false;
+        
+        m_character.stop |= _stopCharacter;
+        
+        yield return new WaitForSeconds(_duration);
+        m_canInteract = true;
+        m_character.stop = false;
     }
 }

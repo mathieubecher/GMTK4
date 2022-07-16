@@ -22,6 +22,8 @@ public class Character : MonoBehaviour
     
     private int m_leftBullet;
     private bool m_canShoot = true;
+    [HideInInspector] public bool stop;
+
     void OnEnable()
     {
         m_controller = GetComponent<Controller>();
@@ -43,12 +45,19 @@ public class Character : MonoBehaviour
     
     void Update()
     {
+        if (stop)
+        {
+            m_rigidbody.velocity = Vector2.zero;
+            return;
+        }
         m_target.direction = m_controller.targetDirection;
         m_rigidbody.velocity = m_controller.moveDirection * m_moveSpeed;
     }
 
     void Shoot()
     {
+        if (stop) return;
+        
         if (m_leftBullet <= 0 || !m_canShoot)
             return;
         
@@ -70,6 +79,8 @@ public class Character : MonoBehaviour
 
     private void Reload()
     {
+        if (stop) return;
+        
         if (m_leftBullet == m_magazineSize || !m_canShoot)
             return; 
         

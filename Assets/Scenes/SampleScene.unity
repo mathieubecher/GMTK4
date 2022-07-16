@@ -1335,6 +1335,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 126550657910095203, guid: 5a42aa29d2262e54981862f9d6c37c82, type: 3}
+      propertyPath: m_duration
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 126550657910095203, guid: 5a42aa29d2262e54981862f9d6c37c82, type: 3}
+      propertyPath: m_stopCharacter
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 126550657910095207, guid: 5a42aa29d2262e54981862f9d6c37c82, type: 3}
       propertyPath: m_Name
       value: Beer

@@ -221,6 +221,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78600186d0a59d348bd5b63dba7d7513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_duration: 0.4
+  m_stopCharacter: 1
   m_tuto: {fileID: 126550657661006680}
 --- !u!114 &126550657910095201
 MonoBehaviour:

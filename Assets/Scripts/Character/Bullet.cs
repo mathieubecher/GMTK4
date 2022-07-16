@@ -23,10 +23,10 @@ public class Bullet : MonoBehaviour
     {
         if (_other.isTrigger) return;
         
-        Destroy(gameObject);
         if (_other.TryGetComponent(out Hitable hit))
         {
             hit.Hit(this);
         }
+        Destroy(gameObject);
     }
 }
