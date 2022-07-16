@@ -1,12 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using Pathfinding;
+using Random = UnityEngine.Random;
+
 public class Zombi : Hitable
 {
     [SerializeField] private TextMeshPro m_tmpDiceScoreDisplay;
-    [SerializeField] private Collider2D m_collider;
+    [SerializeField] private Animator m_bodyAnimator;
+    [SerializeField] private Animator m_headAnimator;
     
     [HideInInspector] public bool stop;
     
@@ -51,6 +55,14 @@ public class Zombi : Hitable
         m_lastTimeRefresh = 0.5f;
         m_seeker.StartPath(m_rigidbody.position, m_character.transform.position, OnPathComplete);
     }
+
+    private void Update()
+    {
+        m_bodyAnimator.SetFloat("x", m_rigidbody.velocity.x);
+        m_bodyAnimator.SetFloat("y", m_rigidbody.velocity.y);
+        m_headAnimator.SetBool("roll", stop);
+    }
+
     private void FixedUpdate()
     {
         if (stop)

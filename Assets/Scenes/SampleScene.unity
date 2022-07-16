@@ -1070,6 +1070,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4283658609205409417, guid: 7cc857e1fa85eef46ab3564dfd27e252, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cc857e1fa85eef46ab3564dfd27e252, type: 3}
 --- !u!1 &713732415
@@ -1296,6 +1300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce294322b3c56824ba9f74acfe705f37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_door: {fileID: 1987548370}
 --- !u!4 &890123316
 Transform:
   m_ObjectHideFlags: 0
@@ -2478,7 +2483,7 @@ MonoBehaviour:
   m_duration: 5
   m_stopCharacter: 1
   m_velocity: {x: 0, y: 3}
-  active: 0
+  m_active: 0
 --- !u!1001 &1168067541025921678
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2534,6 +2539,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombi
       objectReference: {fileID: 0}
+    - target: {fileID: 4283658609205409417, guid: 7cc857e1fa85eef46ab3564dfd27e252, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cc857e1fa85eef46ab3564dfd27e252, type: 3}
 --- !u!1001 &5910003033047786433
@@ -2543,6 +2552,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5910003033088908222, guid: 7c7c6a9a471e0d74f836dec90268d195, type: 3}
+      propertyPath: orthographic size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5910003033151645940, guid: 7c7c6a9a471e0d74f836dec90268d195, type: 3}
       propertyPath: m_RootOrder
       value: 3
