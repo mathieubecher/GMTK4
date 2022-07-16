@@ -29,6 +29,7 @@ public class Zombi : Hitable
     private int m_currentWaypoint = 0;
     private float m_lastTimeRefresh;
 
+    private DiceGestor m_diceGestor;
     private Character m_character;
     private Rigidbody2D m_rigidbody;
 
@@ -38,6 +39,7 @@ public class Zombi : Hitable
 
     private void Awake()
     {
+        m_diceGestor = GetComponentInChildren<DiceGestor>();
         m_rigidbody = GetComponent<Rigidbody2D>();
         m_character = FindObjectOfType<Character>();
         m_seeker = FindObjectOfType<Seeker>();
@@ -50,6 +52,7 @@ public class Zombi : Hitable
         Door.OnDoorExit += DisableZombi;
         m_character.OnDamaged += CharacterDamage;
         m_character.OnDead += DisableZombi;
+        GetComponentInChildren<DiceGestor>().Draw(m_diceScore, DiceGestor.RotationFaceUp.Rotate90);
     }
 
 
@@ -169,11 +172,13 @@ public class Zombi : Hitable
     private IEnumerator Stun(Vector3 _direction)
     {
         stop = true;
+        m_diceGestor.Hide();
         EnableZombi();
         gameObject.layer = LayerMask.NameToLayer("PhysicZombi");
         m_rigidbody.velocity = _direction * m_hitSpeed;
         yield return new WaitForSeconds(m_hitDuration);
         m_diceScore = Random.Range(1, 7);
+        m_diceGestor.Draw( m_diceScore, DiceGestor.RotationFaceUp.Rotate90);
         m_tmpDiceScoreDisplay.text = "" + m_diceScore;
         stop = false;
         gameObject.layer = LayerMask.NameToLayer("Zombi");

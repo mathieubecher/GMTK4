@@ -5,11 +5,10 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    private Controller m_controller;
-    private Rigidbody2D m_rigidbody;
     
     [Header("Navigation")]
     [SerializeField] private float m_moveSpeed = 3f;
+    [SerializeField] private Animator m_animator;
 
     [Header("Shoot")] 
     [SerializeField] private int m_magazineSize = 6;
@@ -23,6 +22,10 @@ public class Character : MonoBehaviour
     [SerializeField] private float m_invunerabilityDuration = 1.0f;
     [SerializeField] private int m_life = 3;
 
+    // private
+    private Controller m_controller;
+    private Rigidbody2D m_rigidbody;
+    
     private int m_leftBullet;
     private bool m_canShoot = true;
     private bool m_canEat = true;
@@ -46,6 +49,14 @@ public class Character : MonoBehaviour
     public float maxSpeed { get => m_moveSpeed; }
     public float currentSpeed { get => m_rigidbody.velocity.magnitude; }
     public int leftBullet { get => m_leftBullet; }
+    public Vector2 targetDir { get =>  m_controller.targetDirection; }
+    
+    void Awake()
+    {
+        m_controller = GetComponent<Controller>();
+        m_rigidbody = GetComponent<Rigidbody2D>();
+        m_leftBullet = m_magazineSize;
+    }
     
     void OnEnable()
     {
@@ -59,12 +70,6 @@ public class Character : MonoBehaviour
         m_controller.OnShoot -= Shoot;
         m_controller.OnReload -= Reload;
     }
-    void Awake()
-    {
-        m_controller = GetComponent<Controller>();
-        m_rigidbody = GetComponent<Rigidbody2D>();
-        m_leftBullet = m_magazineSize;
-    }
     
     void Update()
     {
@@ -72,8 +77,11 @@ public class Character : MonoBehaviour
         {
             return;
         }
-        m_target.direction = m_controller.targetDirection;
+        m_target.direction = targetDir;
         m_rigidbody.velocity = m_controller.moveDirection * m_moveSpeed;
+
+        m_animator.SetFloat("x", m_rigidbody.velocity.x);
+        m_animator.SetFloat("y", m_rigidbody.velocity.y -0.01f);
     }
 
     void Shoot()
