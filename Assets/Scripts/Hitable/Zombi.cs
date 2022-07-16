@@ -172,11 +172,11 @@ public class Zombi : Hitable
     private IEnumerator Stun(Vector3 _direction)
     {
         stop = true;
-        m_diceGestor.Hide();
         EnableZombi();
         gameObject.layer = LayerMask.NameToLayer("PhysicZombi");
         m_rigidbody.velocity = _direction * m_hitSpeed;
         yield return new WaitForSeconds(m_hitDuration);
+        
         m_diceScore = m_diceGestor.Roll(((m_rigidbody.velocity.x < 0.0f && m_rigidbody.velocity.y < 0.0f) ||
                                          (m_rigidbody.velocity.x > 0.0f && m_rigidbody.velocity.y > 0.0f)));
         m_tmpDiceScoreDisplay.text = "" + m_diceScore;

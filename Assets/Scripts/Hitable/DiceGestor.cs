@@ -33,10 +33,6 @@ public class DiceGestor : MonoBehaviour
     private static int[] axisOne = new int[]{4, 2, 3, 5};
     private static int[] axisTwo = new int[]{1, 4, 6, 3};
     private static int[] axisThree = new int[]{1, 2, 6, 5};
-    public void Hide()
-    {
-        this.gameObject.SetActive(false);
-    }
 
     public int Roll(bool _preserveFaceRight)
     {
@@ -84,7 +80,6 @@ public class DiceGestor : MonoBehaviour
                 m_dotsFaceUp[x + y * 3].enabled = m_faces[m_valueFaceUp-1][x + y * 4] == 1.0f;
             }
         }
-        
-        this.gameObject.SetActive(true);
     }
+
 }
