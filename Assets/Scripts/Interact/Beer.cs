@@ -37,7 +37,7 @@ public class Beer : Interact
 
     public override void Success()
     {
-        OnBeerEmpty?.Invoke(this);
+        OnBeerRelease?.Invoke(this);
         
         --m_nbUse;
         if (m_nbUse <= 0)
