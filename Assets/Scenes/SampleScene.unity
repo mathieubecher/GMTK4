@@ -1569,6 +1569,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1056761242121332135, guid: 7cc857e1fa85eef46ab3564dfd27e252, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1168067540176645104, guid: 7cc857e1fa85eef46ab3564dfd27e252, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -1619,7 +1623,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1168067540176645106, guid: 7cc857e1fa85eef46ab3564dfd27e252, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4283658609205409417, guid: 7cc857e1fa85eef46ab3564dfd27e252, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -4180,6 +4184,14 @@ PrefabInstance:
     - target: {fileID: 1168067540176645106, guid: 7cc857e1fa85eef46ab3564dfd27e252, type: 3}
       propertyPath: m_Name
       value: Zombi
+      objectReference: {fileID: 0}
+    - target: {fileID: 1815569997417260027, guid: 7cc857e1fa85eef46ab3564dfd27e252, type: 3}
+      propertyPath: drawGizmos
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1815569997417260027, guid: 7cc857e1fa85eef46ab3564dfd27e252, type: 3}
+      propertyPath: detailedGizmos
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4283658609205409417, guid: 7cc857e1fa85eef46ab3564dfd27e252, type: 3}
       propertyPath: m_Materials.Array.data[0]

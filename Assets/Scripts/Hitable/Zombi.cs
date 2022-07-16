@@ -92,7 +92,7 @@ public class Zombi : Hitable
     {
         if (_path.error) return;
         m_path = new List<Vector3>(_path.vectorPath);
-        m_currentWaypoint = 0;
+        m_currentWaypoint = m_path.Count > 1 ? 1 : 0;
         m_lastTimeRefresh = m_refreshPathFrequency;
 
     }
@@ -127,7 +127,7 @@ public class Zombi : Hitable
         if (m_lastTimeRefresh <= 0f) RefreshPath();
         else if (m_path == null)
         {
-            m_rigidbody.velocity = Vector2.zero;
+            //m_rigidbody.velocity = Vector2.zero;
             return;
         }
         else if (m_currentWaypoint >= m_path.Count)
@@ -154,7 +154,10 @@ public class Zombi : Hitable
             Vector2 desiredVelocity = desiredDirection * maxSpeed;
             m_rigidbody.velocity = desiredVelocity;
 
-            if (distance < m_nextWaypointDistance) ++m_currentWaypoint;
+            if (distance < m_nextWaypointDistance)
+            {
+                ++m_currentWaypoint;
+            }
         }
 
     }

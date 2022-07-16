@@ -80,7 +80,7 @@ public class Character : MonoBehaviour
         m_target.direction = targetDir;
         m_rigidbody.velocity = m_controller.moveDirection * m_moveSpeed;
 
-        m_animator.SetFloat("x", m_rigidbody.velocity.x);
+        m_animator.SetFloat("x", m_rigidbody.velocity.x-0.01f);
         m_animator.SetFloat("y", m_rigidbody.velocity.y -0.01f);
     }
 
