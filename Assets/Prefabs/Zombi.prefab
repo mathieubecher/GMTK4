@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 524667403620231350}
   - component: {fileID: 1168067540176645107}
   - component: {fileID: 7273736045584372560}
+  - component: {fileID: 5981004514846931105}
   m_Layer: 7
   m_Name: Zombi
   m_TagString: Untagged
@@ -253,6 +254,50 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &5981004514846931105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168067540176645106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 598ed9f847b8bd94da107f1144b7ae02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_attackFoley:
+    m_eventReference:
+      Guid:
+        Data1: 1279111290
+        Data2: 1246693336
+        Data3: 1146214272
+        Data4: -1805354492
+      Path: event:/Foleys/Dice/Fol_Dice_Attack
+  m_hitFoley:
+    m_eventReference:
+      Guid:
+        Data1: 1372141963
+        Data2: 1272950932
+        Data3: 1715532167
+        Data4: 474740831
+      Path: event:/Foleys/Dice/Fol_Dice_Hit
+  m_nearFoley:
+    m_eventReference:
+      Guid:
+        Data1: -990524845
+        Data2: 1323573204
+        Data3: -1789046135
+        Data4: 2081002484
+      Path: event:/Foleys/Dice/Fol_Dice_Near
+  m_hitMarkerFB:
+    m_eventReference:
+      Guid:
+        Data1: 343953459
+        Data2: 1209248173
+        Data3: 1465950366
+        Data4: 1208290048
+      Path: event:/SFX/SFX_FB_HitMarker
 --- !u!1 &1705521497633054028
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,6 +393,7 @@ GameObject:
   - component: {fileID: 86288093916957724}
   - component: {fileID: 1685786739005899488}
   - component: {fileID: 8032231290293545394}
+  - component: {fileID: 362119100402574480}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -442,6 +488,26 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &362119100402574480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4775187898419670968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3f274085c9466840b5d1c33f780a016, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_footstepFoley:
+    m_eventReference:
+      Guid:
+        Data1: -1888346176
+        Data2: 1272903285
+        Data3: -1630132039
+        Data4: 90886435
+      Path: event:/Foleys/Dice/Fol_Dice_Walk
 --- !u!1 &5704018236862036875
 GameObject:
   m_ObjectHideFlags: 0
