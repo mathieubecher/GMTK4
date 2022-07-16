@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5910003032887683272}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 1.3500004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -178,6 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5910003033151645940}
   - component: {fileID: 5910003033151645944}
+  - component: {fileID: 3236174796075854434}
   - component: {fileID: 5910003033151645942}
   - component: {fileID: 7809244084869783603}
   - component: {fileID: 5910003033151645943}
@@ -227,6 +228,18 @@ MonoBehaviour:
   m_target: {fileID: 0}
   m_bullet: {fileID: 7245288453134482506, guid: 4443cbde074356140ba77feda319532a, type: 3}
   m_offsetBulletAtSpawn: 0.6
+--- !u!114 &3236174796075854434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5910003033151645941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3d77ec2f2e0644d9856b4364f655ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5910003033151645942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -396,6 +409,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e018a409-9873-4995-a572-6ef52bc2645d
     m_ActionName: Player/Reload[/Keyboard/r,/XInputControllerWindows/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5910003033151645942}
+        m_TargetAssemblyTypeName: InputSystem.Controller, Assembly-CSharp
+        m_MethodName: ReadInteractAction
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: de6eddde-c2e5-40e9-b0dd-53ff764e6eb9
+    m_ActionName: Player/Interact[/Keyboard/e,/XInputControllerWindows/leftTrigger]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

@@ -33,6 +33,9 @@ namespace InputSystem
         
         public delegate void Reload();
         public event Reload OnReload;
+        
+        public delegate void Interact();
+        public event Interact OnInteract;
 
         private void Awake()
         {
@@ -73,6 +76,12 @@ namespace InputSystem
         {
             if (_context.performed)
                 OnReload?.Invoke();
+        }
+        
+        public void ReadInteractAction(InputAction.CallbackContext _context)
+        {
+            if (_context.performed)
+                OnInteract?.Invoke();
         }
     }
 }
