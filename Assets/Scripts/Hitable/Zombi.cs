@@ -58,18 +58,18 @@ public class Zombi : Hitable
 
     private void Update()
     {
-        m_bodyAnimator.SetFloat("x", m_rigidbody.velocity.x);
-        m_bodyAnimator.SetFloat("y", m_rigidbody.velocity.y);
+        m_bodyAnimator.SetFloat("x", (stop ? -1f : 1f) * m_rigidbody.velocity.x);
+        m_bodyAnimator.SetFloat("y", (stop ? -1f : 1f) * m_rigidbody.velocity.y);
+        
+        m_headAnimator.SetFloat("x", m_rigidbody.velocity.x);
+        m_headAnimator.SetFloat("y", m_rigidbody.velocity.y);
         m_headAnimator.SetBool("roll", stop);
     }
 
     private void FixedUpdate()
     {
-        if (stop)
-        {
-            return;
-        }
-
+        if (stop) return;
+        
         m_lastTimeRefresh -= Time.deltaTime;
         
         if(m_lastTimeRefresh <= 0f) RefreshPath();
@@ -111,7 +111,7 @@ public class Zombi : Hitable
     {
         if (stop) return;
         
-        Vector3 direction = transform.position - _bullet.transform.position;
+        Vector3 direction = _bullet.GetComponent<Rigidbody2D>().velocity;
         direction.Normalize();
         IEnumerator coroutine = Stun(direction);
         StartCoroutine(coroutine);
