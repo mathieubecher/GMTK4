@@ -1,37 +1,54 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class DiceGestor : MonoBehaviour
 {
-    [SerializeField] private List<SpriteRenderer> m_dotsFace1;
-    [SerializeField] private List<SpriteRenderer> m_dotsFace2;
-    [SerializeField] private List<SpriteRenderer> m_dotsFace3;
+    public enum RotationFaceUp
+    {
+        Rotate0,
+        Rotate90,
+        Rotate180,
+        Rotate270
+    }
+    
+    [FormerlySerializedAs("m_dotsFace1")] [SerializeField] private List<SpriteRenderer> m_dotsFaceLeft;
+    [FormerlySerializedAs("m_dotsFace2")] [SerializeField] private List<SpriteRenderer> m_dotsFaceRight;
+    [FormerlySerializedAs("m_dotsFace3")] [SerializeField] private List<SpriteRenderer> m_dotsFaceUp;
 
     Matrix4x4[] m_faces = new Matrix4x4[]{ 
         new Matrix4x4(new Vector4(0,0,0,0), new Vector4(0,1,0,0), new Vector4(0,0,0,0), new Vector4(0,0,0,0)),
-        new Matrix4x4(new Vector4(1,0,0,0), new Vector4(0,0,0,0), new Vector4(0,0,1,0), new Vector4(0,0,0,0)), 
+        new Matrix4x4(new Vector4(0,1,0,0), new Vector4(0,0,0,0), new Vector4(0,1,0,0), new Vector4(0,0,0,0)), 
         new Matrix4x4(new Vector4(1,0,0,0), new Vector4(0,1,0,0), new Vector4(0,0,1,0), new Vector4(0,0,0,0)), 
         new Matrix4x4(new Vector4(1,0,1,0), new Vector4(0,0,0,0), new Vector4(1,0,1,0), new Vector4(0,0,0,0)),  
         new Matrix4x4(new Vector4(1,0,1,0), new Vector4(0,1,0,0), new Vector4(1,0,1,0), new Vector4(0,0,0,0)), 
         new Matrix4x4(new Vector4(1,0,1,0), new Vector4(1,0,1,0), new Vector4(1,0,1,0), new Vector4(0,0,0,0))}; 
     // Start is called before the first frame update
 
-
+    private static int[] axisOne = new int[]{4, 2, 3, 5};
+    private static int[] axisTwo = new int[]{1, 4, 6, 3};
+    private static int[] axisThree = new int[]{1, 2, 6, 5};
     public void Hide()
     {
         this.gameObject.SetActive(false);
     }
-    public void Draw(int _face1, int _face2, int _face3)
+    public void Draw(int _faceUp, RotationFaceUp _rotation)
     {
-        Debug.Log(_face1 + " " + _face2 + " " + _face3);
+        int faceUp = _faceUp;
+        int[] axis = _faceUp == 1 || _faceUp == 6 ? axisOne : _faceUp == 2 || _faceUp == 5 ? axisTwo : axisThree;
+        int numberLeftInAxis = Random.Range(0, 4);
+        
+        int faceLeft = axis[numberLeftInAxis];
+        int faceRight = axis[(numberLeftInAxis + (faceUp > 3 ? -1 : 1)) % 4];
+        Debug.Log(_faceUp + " " + faceLeft + " " + faceRight);
         for (int x = 0; x < 3; ++x)
         {
             for (int y = 0; y < 3; ++y)
             {
-                m_dotsFace1[x + y * 3].enabled = m_faces[_face1-1][x + y * 4] == 1.0f;
-                m_dotsFace2[x + y * 3].enabled = m_faces[_face2-1][x + y * 4] == 1.0f;
-                m_dotsFace3[x + y * 3].enabled = m_faces[_face3-1][x + y * 4] == 1.0f;
+                m_dotsFaceLeft[x + y * 3].enabled = m_faces[faceLeft-1][x + y * 4] == 1.0f;
+                m_dotsFaceRight[x + y * 3].enabled = m_faces[faceRight-1][x + y * 4] == 1.0f;
+                m_dotsFaceUp[x + y * 3].enabled = m_faces[faceUp-1][x + y * 4] == 1.0f;
             }
         }
         
