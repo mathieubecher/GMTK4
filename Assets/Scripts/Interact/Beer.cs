@@ -10,6 +10,12 @@ public class Beer : Interact
     [SerializeField] private List<SpriteRenderer> m_liquid;
     [SerializeField] private int m_nbUse = 4; 
     
+    public delegate void TakeBeer(Beer _beer);
+    public static event TakeBeer OnTakeBeer;
+    
+    public delegate void BeerRelease(Beer _beer);
+    public static event BeerRelease OnBeerRelease;
+    
     public delegate void BeerEmpty(Beer _beer);
     public static event BeerEmpty OnBeerEmpty;
     
@@ -25,19 +31,23 @@ public class Beer : Interact
     public override void InteractAction(InteractSystem _interactSystem)
     {
         if (m_nbUse <= 0) return;
-        
+        OnTakeBeer?.Invoke(this);
         base.InteractAction(_interactSystem);
+    }
+
+    public override void Success()
+    {
+        OnBeerEmpty?.Invoke(this);
+        
         --m_nbUse;
         if (m_nbUse <= 0)
         {
             m_nbUse = 0;
             OnBeerEmpty?.Invoke(this);
-            
         }
         for (int i = m_liquid.Count - 1; i >= m_nbUse; --i)
         {
             m_liquid[i].enabled = false;
         }
-
     }
 }

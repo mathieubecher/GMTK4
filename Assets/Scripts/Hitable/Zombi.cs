@@ -33,6 +33,7 @@ public class Zombi : Hitable
     
     private Character m_character;
     private Rigidbody2D m_rigidbody;
+
     private void Awake()
     {
         m_rigidbody = GetComponent<Rigidbody2D>();
@@ -45,16 +46,16 @@ public class Zombi : Hitable
     private void OnEnable()
     {
         Door.OnDoorExit += DisableAtEnd;
-        Character.OnEat += CharacterDamage;
-        Character.OnDead += DisableAtEnd;
+        m_character.OnDamaged += CharacterDamage;
+        m_character.OnDead += DisableAtEnd;
     }
 
 
     private void OnDisable()
     {
         Door.OnDoorExit -= DisableAtEnd;
-        Character.OnEat -= CharacterDamage;
-        Character.OnDead += DisableAtEnd;
+        m_character.OnDamaged -= CharacterDamage;
+        m_character.OnDead += DisableAtEnd;
     }
 
     private void DisableAtEnd()
@@ -133,7 +134,7 @@ public class Zombi : Hitable
                 desiredSpeed = distance / Time.deltaTime;
             }
 
-            m_rigidbody.velocity = desiredDirection * (m_defaultSpeed * (float)m_diceScore);
+            m_rigidbody.velocity = desiredDirection * GetSpeed();
 
             RefreshPath();
         }
@@ -174,5 +175,10 @@ public class Zombi : Hitable
         stop = false;
         gameObject.layer = LayerMask.NameToLayer("Zombi");
         RefreshPath();
+    }
+
+    public float GetSpeed()
+    {
+        return (m_defaultSpeed * (float)m_diceScore);
     }
 }

@@ -19,7 +19,12 @@ public class Interact : MonoBehaviour
     public virtual void InteractAction(InteractSystem _interactSystem)
     {
         Debug.Log("Interact");
-        IEnumerator coroutine = _interactSystem.OnInteract(m_duration, m_velocity, m_stopCharacter);
+        IEnumerator coroutine = _interactSystem.OnInteract(this, m_duration, m_velocity, m_stopCharacter);
         StartCoroutine(coroutine);
+    }
+
+    public virtual void Success()
+    {
+        
     }
 }

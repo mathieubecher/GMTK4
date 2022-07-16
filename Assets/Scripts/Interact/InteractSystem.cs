@@ -65,15 +65,19 @@ public class InteractSystem : MonoBehaviour
         }
     }
 
-    public IEnumerator OnInteract(float _duration, Vector2 _velocity, bool _stopCharacter)
+    public IEnumerator OnInteract(Interact _interact, float _duration, Vector2 _velocity, bool _stopCharacter)
     {
         m_canInteract = false;
         if(_stopCharacter) m_character.StopActor( _velocity);
         
         yield return new WaitForSeconds(_duration);
-        
-        m_canInteract = true;
-        if(_stopCharacter) m_character.RestartActor();
+
+        if (m_character.stop)
+        {
+            m_canInteract = true;
+            if(_stopCharacter) m_character.RestartActor();
+            _interact.Success();
+        }
         
     }
 }

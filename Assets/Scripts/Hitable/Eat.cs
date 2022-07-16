@@ -8,12 +8,17 @@ public class Eat : MonoBehaviour
     private Character m_character;
     private bool m_eat;
 
+    public delegate void EatDelegate(Zombi _zombi);
+    public static event EatDelegate OnEat;
 
     private void Update()
     {
         if (m_character)
         {
-            m_character.Eat(this);
+            if (m_character.Eat(this))
+            {
+                OnEat?.Invoke(GetComponent<Zombi>());
+            }
         }
     }
 

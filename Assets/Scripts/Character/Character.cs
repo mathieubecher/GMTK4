@@ -30,17 +30,17 @@ public class Character : MonoBehaviour
     [HideInInspector] public bool stop;
     
     
-    public delegate void ShootAction(int _bullet);
-    public event ShootAction OnShoot;
+    public delegate void ShootDelegate(int _bullet);
+    public event ShootDelegate OnShoot;
     
-    public delegate void ReloadAction();
-    public event ReloadAction OnReload;
+    public delegate void ReloadDelegate();
+    public event ReloadDelegate OnReload;
     
-    public delegate void EatAction(int _life);
-    public static event EatAction OnEat;
+    public delegate void DamagedDelegate(int _life);
+    public event DamagedDelegate OnDamaged;
     
     public delegate void DeadAction();
-    public static event DeadAction OnDead;
+    public event DeadAction OnDead;
 
     void OnEnable()
     {
@@ -148,7 +148,7 @@ public class Character : MonoBehaviour
         else
         {
             
-            OnEat?.Invoke(m_life);
+            OnDamaged?.Invoke(m_life);
         }
         
         yield return new WaitForSeconds(m_invunerabilityDuration);
