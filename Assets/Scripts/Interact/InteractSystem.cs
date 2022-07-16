@@ -58,6 +58,7 @@ public class InteractSystem : MonoBehaviour
 
     private void Interact()
     {
+        if (m_character.life <= 0) return;
         if (m_hasInteract && m_canInteract)
         {
             m_interact.InteractAction(this);

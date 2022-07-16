@@ -42,6 +42,45 @@ public class Zombi : Hitable
         RefreshPath();
     }
 
+    private void OnEnable()
+    {
+        Door.OnDoorExit += DisableAtEnd;
+        Character.OnEat += CharacterDamage;
+        Character.OnDead += DisableAtEnd;
+    }
+
+
+    private void OnDisable()
+    {
+        Door.OnDoorExit -= DisableAtEnd;
+        Character.OnEat -= CharacterDamage;
+        Character.OnDead += DisableAtEnd;
+    }
+
+    private void DisableAtEnd()
+    {
+        m_rigidbody.velocity = Vector2.zero;
+        UpdateAnim();
+        enabled = false;
+        m_headAnimator.SetBool("disable", true);
+    }
+
+    private void CharacterDamage(int _life)
+    {
+        m_rigidbody.velocity = Vector2.zero;
+        UpdateAnim();
+        enabled = false;
+        m_headAnimator.SetBool("disable", true);
+        StartCoroutine("Wait");
+    }
+
+    private IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(1f);
+        enabled = true;
+        m_headAnimator.SetBool("disable", false);
+    }
+
     void OnPathComplete(Path _path, bool _repeat = false)
     {
         if (_path.error) return;
@@ -57,6 +96,11 @@ public class Zombi : Hitable
     }
 
     private void Update()
+    {
+        UpdateAnim();
+    }
+
+    private void UpdateAnim()
     {
         m_bodyAnimator.SetFloat("x", (stop ? -1f : 1f) * m_rigidbody.velocity.x);
         m_bodyAnimator.SetFloat("y", (stop ? -1f : 1f) * m_rigidbody.velocity.y);
@@ -120,6 +164,8 @@ public class Zombi : Hitable
     private IEnumerator Stun(Vector3 _direction)
     {
         stop = true;
+        enabled = true;
+        m_headAnimator.SetBool("disable", false);
         gameObject.layer = LayerMask.NameToLayer("PhysicZombi");
         m_rigidbody.velocity = _direction * m_hitSpeed;
         yield return new WaitForSeconds(m_hitDuration);
