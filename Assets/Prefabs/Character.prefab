@@ -221,10 +221,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a6f87783cef7c4c95d9df0b4c4dad0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_moveSpeed: 3
+  m_moveSpeed: 4.5
   m_magazineSize: 6
-  m_shootCooldown: 0.1
-  m_reloadDuration: 0.5
+  m_shootCooldown: 0.2
+  m_reloadDuration: 3
   m_target: {fileID: 0}
   m_bullet: {fileID: 7245288453134482506, guid: 4443cbde074356140ba77feda319532a, type: 3}
   m_offsetBulletAtSpawn: 0.6
