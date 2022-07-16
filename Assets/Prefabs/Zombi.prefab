@@ -94,10 +94,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1168067540176645104}
   - component: {fileID: 5052345129235868539}
+  - component: {fileID: 1815569997417260027}
   - component: {fileID: 524667403620231350}
-  - component: {fileID: 4414193917734265470}
   - component: {fileID: 1168067540176645107}
-  m_Layer: 0
+  - component: {fileID: 7273736045584372560}
+  m_Layer: 7
   m_Name: Zombi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,11 +135,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b35ae8f287ac0c8409e3f151e3742763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_tmpDiceScoreDisplay: {fileID: 998382221195638042}
+  m_collider: {fileID: 1168067540176645107}
+  stop: 0
   m_defaultSpeed: 1
+  m_nextWaypointDistance: 0.1
+  m_refreshPathFrequency: 2
   m_hitSpeed: 1
   m_hitDuration: 1
-  m_tmpDiceScoreDisplay: {fileID: 998382221195638042}
-  stop: 0
+--- !u!114 &1815569997417260027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168067540176645106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 0
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
 --- !u!114 &524667403620231350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,27 +183,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa062246174d5fd469a5cd365f24d1ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!50 &4414193917734265470
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1168067540176645106}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!61 &1168067540176645107
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -198,6 +209,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &7273736045584372560
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168067540176645106}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &1168067541255888731
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,7 +240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1168067541255888728}
   - component: {fileID: 1168067541255888729}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +325,7 @@ GameObject:
   - component: {fileID: 298553197727979232}
   - component: {fileID: 4283658609205409417}
   - component: {fileID: 998382221195638042}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DiceScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}

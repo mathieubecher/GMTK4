@@ -21,8 +21,6 @@ public class Bullet : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D _other)
     {
-        if (_other.isTrigger) return;
-        
         if (_other.TryGetComponent(out Hitable hit))
         {
             hit.Hit(this);
