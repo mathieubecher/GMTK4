@@ -47,20 +47,20 @@ public class Zombi : Hitable
 
     private void OnEnable()
     {
-        Door.OnDoorExit += DisableAtEnd;
+        Door.OnDoorExit += DisableZombi;
         m_character.OnDamaged += CharacterDamage;
-        m_character.OnDead += DisableAtEnd;
+        m_character.OnDead += DisableZombi;
     }
 
 
     private void OnDisable()
     {
-        Door.OnDoorExit -= DisableAtEnd;
+        Door.OnDoorExit -= DisableZombi;
         m_character.OnDamaged -= CharacterDamage;
-        m_character.OnDead += DisableAtEnd;
+        m_character.OnDead += DisableZombi;
     }
 
-    private void DisableAtEnd()
+    private void DisableZombi()
     {
         m_rigidbody.velocity = Vector2.zero;
         UpdateAnim();
@@ -68,20 +68,21 @@ public class Zombi : Hitable
         m_headAnimator.SetBool("disable", true);
     }
 
+    private void EnableZombi()
+    {
+        enabled = true;
+        m_headAnimator.SetBool("disable", false);
+    }
     private void CharacterDamage(int _life)
     {
-        m_rigidbody.velocity = Vector2.zero;
-        UpdateAnim();
-        enabled = false;
-        m_headAnimator.SetBool("disable", true);
+        DisableZombi();
         StartCoroutine("Wait");
     }
 
     private IEnumerator Wait()
     {
         yield return new WaitForSeconds(1f);
-        enabled = true;
-        m_headAnimator.SetBool("disable", false);
+        EnableZombi();
     }
 
     void OnPathComplete(Path _path, bool _repeat = false)
@@ -168,12 +169,11 @@ public class Zombi : Hitable
     private IEnumerator Stun(Vector3 _direction)
     {
         stop = true;
-        enabled = true;
-        m_headAnimator.SetBool("disable", false);
+        EnableZombi();
         gameObject.layer = LayerMask.NameToLayer("PhysicZombi");
         m_rigidbody.velocity = _direction * m_hitSpeed;
         yield return new WaitForSeconds(m_hitDuration);
-        m_diceScore = Random.Range(1, 6);
+        m_diceScore = Random.Range(1, 7);
         m_tmpDiceScoreDisplay.text = "" + m_diceScore;
         stop = false;
         gameObject.layer = LayerMask.NameToLayer("Zombi");
