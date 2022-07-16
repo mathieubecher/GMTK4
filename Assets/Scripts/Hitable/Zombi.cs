@@ -43,7 +43,7 @@ public class Zombi : Hitable
         m_rigidbody = GetComponent<Rigidbody2D>();
         m_character = FindObjectOfType<Character>();
         m_seeker = FindObjectOfType<Seeker>();
-        m_diceScore = m_diceGestor.Roll(Random.value > 0.5f);
+        m_diceGestor.Draw(m_diceScore);
 
         RefreshPath();
     }
