@@ -9,6 +9,9 @@ public class Bullet : MonoBehaviour
     private Rigidbody2D m_rigidbody;
     [FormerlySerializedAs("speed")] [SerializeField] private float m_speed = 10.0f;
 
+    
+    public delegate void HitObjectDelegate(Bullet _bullet, Hitable _hit);
+    public static event HitObjectDelegate OnHitObject;
     private void Awake()
     {
         m_rigidbody = GetComponent<Rigidbody2D>();
@@ -23,6 +26,7 @@ public class Bullet : MonoBehaviour
     {
         if (_other.TryGetComponent(out Hitable hit))
         {
+            OnHitObject?.Invoke(this, hit);
             hit.Hit(this);
         }
         Destroy(gameObject);

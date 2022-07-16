@@ -19,18 +19,34 @@ public class Character : MonoBehaviour
     [SerializeField] private Target m_target;
     [SerializeField] private GameObject m_bullet;
     [SerializeField] private float m_offsetBulletAtSpawn = 0.6f;
-    
+    [Header("Life")] 
+    [SerializeField] private float m_invunerabilityDuration = 1.0f;
+    [SerializeField] private int m_life = 3;
+
     private int m_leftBullet;
     private bool m_canShoot = true;
+    private bool m_canEat = true;
     [HideInInspector] public bool stop;
     
     
-    public delegate void ShootAction(int _bullet);
-    public event ShootAction OnShoot;
+    public delegate void ShootDelegate(int _bullet);
+    public event ShootDelegate OnShoot;
     
-    public delegate void ReloadAction();
-    public event ReloadAction OnReload;
+    public delegate void ReloadDelegate();
+    public event ReloadDelegate OnReload;
+    
+    public delegate void DamagedDelegate(int _life);
+    public event DamagedDelegate OnDamaged;
+    
+    public delegate void DeadAction();
+    public event DeadAction OnDead;
 
+    //getter
+    public int life { get => m_life; }
+    public float maxSpeed { get => m_moveSpeed; }
+    public float currentSpeed { get => m_rigidbody.velocity.magnitude; }
+    public int leftBullet { get => m_leftBullet; }
+    
     void OnEnable()
     {
         m_controller = GetComponent<Controller>();
@@ -52,7 +68,7 @@ public class Character : MonoBehaviour
     
     void Update()
     {
-        if (stop)
+        if (stop || m_life <= 0)
         {
             return;
         }
@@ -62,7 +78,7 @@ public class Character : MonoBehaviour
 
     void Shoot()
     {
-        if (stop) return;
+        if (stop || m_life <= 0) return;
         
         if (m_leftBullet <= 0 || !m_canShoot)
             return;
@@ -87,7 +103,7 @@ public class Character : MonoBehaviour
 
     private void Reload()
     {
-        if (stop) return;
+        if (stop || m_life <= 0) return;
         
         if (m_leftBullet == m_magazineSize || !m_canShoot)
             return; 
@@ -115,5 +131,39 @@ public class Character : MonoBehaviour
     {
         m_rigidbody.isKinematic = false;
         stop = false;
+    }
+
+    public bool Eat(Eat eat)
+    {
+        if (!m_canEat) return false;
+        StartCoroutine(nameof(Invulnerability));
+        return true;
+    }
+
+    private IEnumerator Invulnerability()
+    {
+        
+        m_canEat = false;
+        --m_life;
+        if (m_life <= 0)
+        {
+            m_life = 0;
+            Dead();
+        }
+        else
+        {
+            
+            OnDamaged?.Invoke(m_life);
+        }
+        
+        yield return new WaitForSeconds(m_invunerabilityDuration);
+        
+        if (m_life > 0) m_canEat = true;
+    }
+
+    private void Dead()
+    {
+        m_rigidbody.velocity = Vector2.zero;
+        OnDead?.Invoke();
     }
 }

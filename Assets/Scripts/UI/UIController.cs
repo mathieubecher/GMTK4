@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour
 {
     [SerializeField] private List<Image> m_bullet; 
+    [SerializeField] private List<Image> m_life; 
     [SerializeField] private float m_reloadDuration; 
     // Start is called before the first frame update
     private Character m_character;
@@ -15,17 +16,22 @@ public class UIController : MonoBehaviour
         m_character = FindObjectOfType<Character>();
         m_character.OnShoot += Shoot;
         m_character.OnReload += Reload;
+        m_character.OnDamaged += Damaged;
+        m_character.OnDead += Dead;
+        
     }
 
     void OnDisable()
     {
         m_character.OnShoot -= Shoot;
         m_character.OnReload -= Reload;
+        m_character.OnDamaged -= Damaged;
+        m_character.OnDead -= Dead;
     }
 
     private void Shoot(int _bullet)
     {
-        for (int i = 5; i >= _bullet; --i)
+        for (int i = m_bullet.Count-1; i >= _bullet; --i)
         {
             m_bullet[i].enabled = false;
         }
@@ -33,7 +39,7 @@ public class UIController : MonoBehaviour
     
     private void Reload()
     {
-        for (int i = 0; i < 6; ++i)
+        for (int i = 0; i < m_bullet.Count; ++i)
         {
             m_bullet[i].enabled = false;
         }
@@ -43,10 +49,24 @@ public class UIController : MonoBehaviour
 
     private IEnumerator ReloadAnim()
     {
-        for (int i = 0; i < 6; ++i)
+        for (int i = 0; i < m_bullet.Count; ++i)
         {
-            yield return new WaitForSeconds(m_reloadDuration/6f);
+            yield return new WaitForSeconds(m_reloadDuration/m_bullet.Count);
             m_bullet[i].enabled = true;
+        }
+    }
+    private void Damaged(int _life)
+    {
+        for (int i = m_life.Count-1; i >= _life; --i)
+        {
+            m_life[i].enabled = false;
+        }
+    }
+    private void Dead()
+    {
+        for (int i = 0; i < m_life.Count; ++i)
+        {
+            m_life[i].enabled = false;
         }
     }
 }
