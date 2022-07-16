@@ -5,15 +5,17 @@ using UnityEngine;
 
 public class Eat : MonoBehaviour
 {
+    [SerializeField] private Zombi m_zombi;
     private Character m_character;
     private bool m_eat;
 
     public delegate void EatDelegate(Zombi _zombi);
     public static event EatDelegate OnEat;
 
+
     private void Update()
     {
-        if (m_character)
+        if (m_character && !m_zombi.stop) 
         {
             if (m_character.Eat(this))
             {
