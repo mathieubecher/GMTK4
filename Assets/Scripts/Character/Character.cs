@@ -54,7 +54,6 @@ public class Character : MonoBehaviour
     {
         if (stop)
         {
-            m_rigidbody.velocity = Vector2.zero;
             return;
         }
         m_target.direction = m_controller.targetDirection;
@@ -104,5 +103,17 @@ public class Character : MonoBehaviour
         m_canShoot = false;
         yield return new WaitForSeconds(_duration);
         m_canShoot = true;
+    }
+
+    public void StopActor( Vector2 _velocity)
+    {
+        m_rigidbody.isKinematic = true;
+        m_rigidbody.velocity = _velocity;
+        stop = true;
+    }
+    public void RestartActor()
+    {
+        m_rigidbody.isKinematic = false;
+        stop = false;
     }
 }

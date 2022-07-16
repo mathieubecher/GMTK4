@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Interact : MonoBehaviour
 {
-    [SerializeField] private float m_duration;
-    [SerializeField] private bool m_stopCharacter;
+    [SerializeField] protected float m_duration;
+    [SerializeField] protected bool m_stopCharacter;
+    [SerializeField] protected Vector2 m_velocity;
     public virtual void EnterZone(InteractSystem _interactSystem)
     {
         
@@ -18,7 +19,7 @@ public class Interact : MonoBehaviour
     public virtual void InteractAction(InteractSystem _interactSystem)
     {
         Debug.Log("Interact");
-        IEnumerator coroutine = _interactSystem.OnInteract(m_duration, m_stopCharacter);
+        IEnumerator coroutine = _interactSystem.OnInteract(m_duration, m_velocity, m_stopCharacter);
         StartCoroutine(coroutine);
     }
 }

@@ -25,7 +25,6 @@ public class Zombi : Hitable
     private List<Vector3> m_path;
     private Seeker m_seeker;
     private int m_currentWaypoint = 0;
-    private bool m_reachedEndOfPath = false;
     private float m_lastTimeRefresh;
     
     private Character m_character;
@@ -44,7 +43,6 @@ public class Zombi : Hitable
         if (_path.error) return;
         m_path = new List<Vector3>(_path.vectorPath);
         m_currentWaypoint = 0;
-        m_reachedEndOfPath = false;
         m_lastTimeRefresh = m_refreshPathFrequency;
 
     }
