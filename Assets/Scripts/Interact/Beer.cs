@@ -10,6 +10,9 @@ public class Beer : Interact
     [SerializeField] private List<SpriteRenderer> m_liquid;
     [SerializeField] private int m_nbUse = 4; 
     
+    public delegate void BeerEmpty(Beer _beer);
+    public static event BeerEmpty OnBeerEmpty;
+    
     public override void EnterZone(InteractSystem _interactSystem)
     {
         m_tuto.enabled = true;
@@ -25,7 +28,12 @@ public class Beer : Interact
         
         base.InteractAction(_interactSystem);
         --m_nbUse;
-        m_nbUse = Math.Max(0, m_nbUse);
+        if (m_nbUse <= 0)
+        {
+            m_nbUse = 0;
+            OnBeerEmpty?.Invoke(this);
+            
+        }
         for (int i = m_liquid.Count - 1; i >= m_nbUse; --i)
         {
             m_liquid[i].enabled = false;
