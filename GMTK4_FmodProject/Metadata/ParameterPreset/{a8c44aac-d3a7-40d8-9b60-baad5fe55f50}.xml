@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{a8c44aac-d3a7-40d8-9b60-baad5fe55f50}">
+		<property name="name">
+			<value>RemainingBeers</value>
+		</property>
+		<relationship name="folder">
+			<destination>{434bb6a3-8be6-4c6f-bd11-8f7879186f36}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{9663b58d-f491-40d5-a554-1d32e1050543}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{9663b58d-f491-40d5-a554-1d32e1050543}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>11</value>
+		</property>
+		<property name="isGlobal">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="isExposedRecursively">
+			<value>false</value>
+		</property>
+	</object>
+</objects>

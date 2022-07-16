@@ -2,13 +2,13 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{03ca79cb-18bf-4614-b06a-d98e9e3936b2}">
 		<property name="name">
-			<value>Fol_Gun_Impact</value>
+			<value>Fol_Bullet_Impact</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>
 		</property>
 		<relationship name="folder">
-			<destination>{975a96ef-2d9e-4d34-b1aa-bb44a08bba4c}</destination>
+			<destination>{02d06745-006a-484c-aef3-a9218f7c964f}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{d0a4f20f-627c-4077-9056-8a01d927fc4b}</destination>
