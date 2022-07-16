@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 98602a06846193b48a47dee969f421a7
+guid: ef72a82eb3c0e2f408acf82552c21b33
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -104,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BodyBackSpriteSheet_0
+      name: MaincharacterBackSpritesheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 23
+        width: 28
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4bf372b0657ebe846b208248d3c9b1ad
-      internalID: -304028815
+      spriteID: d57e46b74b7ff9c48b525653948ede65
+      internalID: -52401900
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BodyBackSpriteSheet_1
+      name: MaincharacterBackSpritesheet_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 28
         y: 0
-        width: 32
-        height: 23
+        width: 28
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,20 +139,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 616fcf7e3d5e6844fbd0f769f73b8721
-      internalID: -1989726431
+      spriteID: 31d3beefaf2158a4fb473322a169f8c8
+      internalID: 1686118916
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BodyBackSpriteSheet_2
+      name: MaincharacterBackSpritesheet_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 56
         y: 0
-        width: 32
-        height: 23
+        width: 28
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,20 +160,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5edd5fa5de756234495adc365918ffc9
-      internalID: 1877347773
+      spriteID: 4b9e3c33eae47ea4685edb48fe00510e
+      internalID: -2001126053
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BodyBackSpriteSheet_3
+      name: MaincharacterBackSpritesheet_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 84
         y: 0
-        width: 32
-        height: 23
+        width: 28
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,8 +181,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5c71b4c800a15d4c8ebfab523ec9453
-      internalID: -400867456
+      spriteID: 5a5c841b2ea527e4699902ed75af33e2
+      internalID: 1084486826
       vertices: []
       indices: 
       edges: []
@@ -198,10 +198,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      BodyBackSpriteSheet_2: 1877347773
-      BodyBackSpriteSheet_3: -400867456
-      BodyBackSpriteSheet_0: -304028815
-      BodyBackSpriteSheet_1: -1989726431
+      MaincharacterBackSpritesheet_3: 1084486826
+      MaincharacterBackSpritesheet_0: -52401900
+      MaincharacterBackSpritesheet_2: -2001126053
+      MaincharacterBackSpritesheet_1: 1686118916
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
