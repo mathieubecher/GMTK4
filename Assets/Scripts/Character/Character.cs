@@ -49,6 +49,7 @@ public class Character : MonoBehaviour
     public float maxSpeed { get => m_moveSpeed; }
     public float currentSpeed { get => m_rigidbody.velocity.magnitude; }
     public int leftBullet { get => m_leftBullet; }
+    public Vector2 targetDir { get =>  m_controller.targetDirection; }
     
     void Awake()
     {
@@ -76,7 +77,7 @@ public class Character : MonoBehaviour
         {
             return;
         }
-        m_target.direction = m_controller.targetDirection;
+        m_target.direction = targetDir;
         m_rigidbody.velocity = m_controller.moveDirection * m_moveSpeed;
 
         m_animator.SetFloat("x", m_rigidbody.velocity.x);
