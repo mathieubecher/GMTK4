@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f627c49d777169347aff478346e95d3f
+guid: 70e3729f88e4c264786ed4e4220dd058
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -44,7 +44,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 20
@@ -100,29 +100,80 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DiceRollSpriteSheet_0
+      name: MainCharacterFrontSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 0
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 548e21baa1217e444a2c853c45f946a1
+      internalID: 286711275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MainCharacterFrontSpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 0
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16604bf0ee047ad4d8df576a3db7e3bc
+      internalID: 1115552369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MainCharacterFrontSpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 0
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c8e729dfbad6224cabf179744bd7488
+      internalID: -909926377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MainCharacterFrontSpriteSheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 41
-        height: 39
+        width: 28
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,71 +181,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b146fdcbf148eea4da64c1f43a006a9e
-      internalID: -1772465750
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DiceRollSpriteSheet_1
-      rect:
-        serializedVersion: 2
-        x: 41
-        y: 0
-        width: 41
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 04249529ffc5d754ba6858816a7ed2c3
-      internalID: -417069794
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DiceRollSpriteSheet_2
-      rect:
-        serializedVersion: 2
-        x: 82
-        y: 0
-        width: 41
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 404f6a8f7fca6ac4a823f6d0074cdca4
-      internalID: 1993728505
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DiceRollSpriteSheet_3
-      rect:
-        serializedVersion: 2
-        x: 123
-        y: 0
-        width: 41
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2b6358af63498be4f84bccc29051ba3e
-      internalID: 823266094
+      spriteID: a8c831da3cea274408324c895d077aff
+      internalID: -1887186628
       vertices: []
       indices: 
       edges: []
@@ -210,10 +198,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      DiceRollSpriteSheet_3: 823266094
-      DiceRollSpriteSheet_1: -417069794
-      DiceRollSpriteSheet_2: 1993728505
-      DiceRollSpriteSheet_0: -1772465750
+      MainCharacterFrontSpriteSheet_3: 286711275
+      MainCharacterFrontSpriteSheet_2: 1115552369
+      MainCharacterFrontSpriteSheet_1: -909926377
+      MainCharacterFrontSpriteSheet_0: -1887186628
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
