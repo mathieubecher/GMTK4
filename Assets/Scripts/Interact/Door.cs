@@ -26,7 +26,8 @@ public class Door : Interact
         if (active)
         {
             OnDoorExit?.Invoke();
-            IEnumerator coroutine = _interactSystem.OnInteract(m_duration, m_velocity, m_stopCharacter);
+            IEnumerator coroutine = _interactSystem.OnInteract(this, m_duration, m_direction.normalized * m_speed, m_stopCharacter);
+            Camera.main.transform.parent = null;
             StartCoroutine(coroutine);
         }
     }

@@ -16,8 +16,8 @@ public class UIController : MonoBehaviour
         m_character = FindObjectOfType<Character>();
         m_character.OnShoot += Shoot;
         m_character.OnReload += Reload;
-        Character.OnEat += Eat;
-        Character.OnDead += Dead;
+        m_character.OnDamaged += Damaged;
+        m_character.OnDead += Dead;
         
     }
 
@@ -25,8 +25,8 @@ public class UIController : MonoBehaviour
     {
         m_character.OnShoot -= Shoot;
         m_character.OnReload -= Reload;
-        Character.OnEat -= Eat;
-        Character.OnDead -= Dead;
+        m_character.OnDamaged -= Damaged;
+        m_character.OnDead -= Dead;
     }
 
     private void Shoot(int _bullet)
@@ -55,7 +55,7 @@ public class UIController : MonoBehaviour
             m_bullet[i].enabled = true;
         }
     }
-    private void Eat(int _life)
+    private void Damaged(int _life)
     {
         for (int i = m_life.Count-1; i >= _life; --i)
         {
