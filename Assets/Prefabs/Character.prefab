@@ -185,6 +185,7 @@ GameObject:
   - component: {fileID: 5910003033151645945}
   - component: {fileID: 5910003033151645947}
   - component: {fileID: 4415667443034748302}
+  - component: {fileID: 8623618596457602444}
   m_Layer: 3
   m_Name: Character
   m_TagString: Untagged
@@ -229,6 +230,8 @@ MonoBehaviour:
   m_target: {fileID: 0}
   m_bullet: {fileID: 7245288453134482506, guid: 4443cbde074356140ba77feda319532a, type: 3}
   m_offsetBulletAtSpawn: 0.6
+  m_invunerabilityDuration: 1
+  m_life: 3
   stop: 0
 --- !u!114 &3236174796075854434
 MonoBehaviour:
@@ -491,14 +494,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab4a245176323c4bb6590db44e7ccc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_moveAudio:
-    m_eventReference:
-      Guid:
-        Data1: 238254798
-        Data2: 1235510465
-        Data3: -1356016222
-        Data4: 220842702
-      Path: event:/Foleys/MC/Fol_MC_Walk
   m_drinkVoice:
     m_eventReference:
       Guid:
@@ -579,6 +574,19 @@ MonoBehaviour:
         Data3: 1086653107
         Data4: 1162629615
       Path: event:/Foleys/Door/Fol_Door_Open
+--- !u!114 &8623618596457602444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5910003033151645941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
 --- !u!1 &5910003033307711837
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@
 			<value>Fol_Dice_Near</value>
 		</property>
 		<property name="outputFormat">
-			<value>0</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{d87f9846-9ae5-4bc2-9c4d-afc5299b176b}</destination>
@@ -59,7 +59,7 @@
 			<destination>{c213175c-b95a-4382-916a-2768c871da2b}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{3ec53181-9083-4cf6-98be-3606e79ab3c6}</destination>
+			<destination>{5440ab79-77fb-46ac-a08e-228f8be2e9d6}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{bc8f85f5-83a5-410f-87d6-c5ced831566c}">
@@ -68,6 +68,9 @@
 		</property>
 		<property name="voiceStealing">
 			<value>4</value>
+		</property>
+		<property name="maximumDistance">
+			<value>35</value>
 		</property>
 	</object>
 	<object class="MarkerTrack" id="{c4c69abf-afe9-4819-8fcf-94fad30ac5da}" />
@@ -125,10 +128,14 @@
 	<object class="MixerBusEffectChain" id="{9ad66d02-b12c-4d0b-b3de-199f3a40a106}">
 		<relationship name="effects">
 			<destination>{a1d26755-8883-42af-bbf5-a44f97d08d3b}</destination>
+			<destination>{a6070c4d-5df5-4179-8ec2-25c3434d036c}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{1eb5fd35-bd72-4293-9e66-4bd38f9b4070}" />
 	<object class="MultiSound" id="{08f9d0fb-99b4-4ff5-adab-0234b0eee9a7}">
+		<property name="volume">
+			<value>4</value>
+		</property>
 		<relationship name="modulators">
 			<destination>{78053d34-286c-4c61-b8cc-536c2ebde5c6}</destination>
 			<destination>{46215a40-f3dd-45e7-917c-b77d7fd85808}</destination>
@@ -148,6 +155,11 @@
 	</object>
 	<object class="MixerBusPanner" id="{10e89a99-4ec3-4fe3-8b89-76dfc9cadd10}" />
 	<object class="MixerBusFader" id="{a1d26755-8883-42af-bbf5-a44f97d08d3b}" />
+	<object class="SpatialiserEffect" id="{a6070c4d-5df5-4179-8ec2-25c3434d036c}">
+		<property name="maximumDistance">
+			<value>35</value>
+		</property>
+	</object>
 	<object class="RandomizerModulator" id="{78053d34-286c-4c61-b8cc-536c2ebde5c6}">
 		<property name="nameOfPropertyBeingModulated">
 			<value>volume</value>

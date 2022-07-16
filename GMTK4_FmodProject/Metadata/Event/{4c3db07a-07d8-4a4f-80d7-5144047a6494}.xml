@@ -5,7 +5,7 @@
 			<value>Fol_Dice_Attack</value>
 		</property>
 		<property name="outputFormat">
-			<value>0</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{d87f9846-9ae5-4bc2-9c4d-afc5299b176b}</destination>
@@ -59,10 +59,14 @@
 			<destination>{5950e3c3-66aa-420f-96cc-97e85ebd5e49}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{3ec53181-9083-4cf6-98be-3606e79ab3c6}</destination>
+			<destination>{5440ab79-77fb-46ac-a08e-228f8be2e9d6}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{039475d7-7687-4107-8004-dfa47e6da37d}" />
+	<object class="EventAutomatableProperties" id="{039475d7-7687-4107-8004-dfa47e6da37d}">
+		<property name="maximumDistance">
+			<value>35</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{c09eab93-2b94-4cae-a52e-32dc1f927626}" />
 	<object class="GroupTrack" id="{979747d3-765e-44cd-b3ce-bf9342818012}">
 		<relationship name="mixerGroup">
@@ -118,10 +122,14 @@
 	<object class="MixerBusEffectChain" id="{d613a43e-ddfd-4838-b285-7fdbfd4d1811}">
 		<relationship name="effects">
 			<destination>{576be720-b51c-40d4-9283-e1c5d31525f5}</destination>
+			<destination>{bb1c3224-fa36-4879-943d-bb59d2fbd1dc}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{505a72b1-74a2-4ef6-8500-2a0aa2abddfa}" />
 	<object class="MultiSound" id="{bf0160e8-c178-40c0-a83d-8151bc844a49}">
+		<property name="volume">
+			<value>5</value>
+		</property>
 		<relationship name="modulators">
 			<destination>{ebbd0aa9-66e1-4098-b2af-67d563fa305f}</destination>
 			<destination>{00a45861-0093-4d87-a009-b114e6e9f705}</destination>
@@ -141,6 +149,11 @@
 	</object>
 	<object class="MixerBusPanner" id="{41953ae9-0925-4fc0-b10c-936b82f5785c}" />
 	<object class="MixerBusFader" id="{576be720-b51c-40d4-9283-e1c5d31525f5}" />
+	<object class="SpatialiserEffect" id="{bb1c3224-fa36-4879-943d-bb59d2fbd1dc}">
+		<property name="maximumDistance">
+			<value>35</value>
+		</property>
+	</object>
 	<object class="RandomizerModulator" id="{ebbd0aa9-66e1-4098-b2af-67d563fa305f}">
 		<property name="nameOfPropertyBeingModulated">
 			<value>volume</value>

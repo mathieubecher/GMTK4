@@ -267,7 +267,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 598ed9f847b8bd94da107f1144b7ae02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_attackFoley:
+  m_impactFoley:
+    m_eventReference:
+      Guid:
+        Data1: 63601099
+        Data2: 1175722175
+        Data3: -1898354000
+        Data4: -1305069154
+      Path: event:/Foleys/Bullet/Fol_Bullet_Impact_Dice
+  m_attackSFX:
     m_eventReference:
       Guid:
         Data1: 1279111290
@@ -275,7 +283,7 @@ MonoBehaviour:
         Data3: 1146214272
         Data4: -1805354492
       Path: event:/Foleys/Dice/Fol_Dice_Attack
-  m_hitFoley:
+  m_hitSFX:
     m_eventReference:
       Guid:
         Data1: 1372141963
@@ -283,7 +291,7 @@ MonoBehaviour:
         Data3: 1715532167
         Data4: 474740831
       Path: event:/Foleys/Dice/Fol_Dice_Hit
-  m_nearFoley:
+  m_nearSFX:
     m_eventReference:
       Guid:
         Data1: -990524845

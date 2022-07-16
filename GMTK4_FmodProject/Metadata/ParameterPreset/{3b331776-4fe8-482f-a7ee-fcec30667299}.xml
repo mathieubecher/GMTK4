@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="ParameterPreset" id="{56f11a1c-729d-4e18-aa39-5bc5fbcd92ed}">
+	<object class="ParameterPreset" id="{3b331776-4fe8-482f-a7ee-fcec30667299}">
 		<property name="name">
-			<value>RemainingBullets</value>
+			<value>ReloadingSteps</value>
 		</property>
 		<relationship name="folder">
 			<destination>{434bb6a3-8be6-4c6f-bd11-8f7879186f36}</destination>
 		</relationship>
 		<relationship name="parameter">
-			<destination>{f92060b6-e21f-47cb-b82b-67779313a815}</destination>
+			<destination>{46ff6211-2d15-4a65-a24e-b0869899993a}</destination>
 		</relationship>
 	</object>
-	<object class="GameParameter" id="{f92060b6-e21f-47cb-b82b-67779313a815}">
+	<object class="GameParameter" id="{46ff6211-2d15-4a65-a24e-b0869899993a}">
 		<property name="parameterType">
 			<value>1</value>
 		</property>

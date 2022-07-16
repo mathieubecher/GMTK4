@@ -8,14 +8,12 @@ public class MotionAudio : MonoBehaviour
 
     public void OnFootstep()
     {
-        m_footstepFoley.Instantiate(gameObject);
-        m_footstepFoley.Play(gameObject);
+        m_footstepFoley.PlayOneShot(gameObject);
     }
 
     public void OnFootstepWithSpeedUpdate()
     {
-        m_footstepFoley.Instantiate(gameObject);
         // m_footstepFoley.SetParameter("PlayerSpeed",); //GET SPEED
-        m_footstepFoley.Play(gameObject);
+        m_footstepFoley.PlayOneShot(gameObject);
     }
 }
