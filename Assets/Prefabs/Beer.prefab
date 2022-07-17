@@ -275,6 +275,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3410540727431764714}
     m_Modifications:
+    - target: {fileID: 1086592906184593459, guid: 8cde43b62898f2247a889e2cebc13b5b, type: 3}
+      propertyPath: m_text
+      value: DRINK
+      objectReference: {fileID: 0}
+    - target: {fileID: 1086592906184593459, guid: 8cde43b62898f2247a889e2cebc13b5b, type: 3}
+      propertyPath: m_fontSize
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 1086592906184593459, guid: 8cde43b62898f2247a889e2cebc13b5b, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 22
+      objectReference: {fileID: 0}
     - target: {fileID: 1086592906851904296, guid: 8cde43b62898f2247a889e2cebc13b5b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -371,6 +383,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button_Input
       objectReference: {fileID: 0}
+    - target: {fileID: 5422256699636257190, guid: 8cde43b62898f2247a889e2cebc13b5b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1130007350, guid: f76add763d2b9864e88b0fe6fabee160, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8cde43b62898f2247a889e2cebc13b5b, type: 3}
 --- !u!224 &7167636487553385308 stripped
