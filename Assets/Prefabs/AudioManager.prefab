@@ -47,11 +47,11 @@ MonoBehaviour:
   m_mainMusic:
     m_eventReference:
       Guid:
-        Data1: -1557339641
-        Data2: 1157068565
-        Data3: 2063131817
-        Data4: 2045776491
-      Path: event:/Music/Mus_Main
+        Data1: -1303646273
+        Data2: 1235608496
+        Data3: 1097691567
+        Data4: -116678998
+      Path: event:/Music/Mus_MainMenu
   m_bulletWoodImpact:
     m_eventReference:
       Guid:
