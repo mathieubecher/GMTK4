@@ -5,6 +5,7 @@ using UnityEngine;
 public class Door : Interact
 {
     [SerializeField] private bool m_active = false;
+    [SerializeField] private SpriteRenderer m_panelLeft;
 
     public bool active
     {
@@ -27,7 +28,7 @@ public class Door : Interact
         {
             OnDoorExit?.Invoke();
             IEnumerator coroutine = _interactSystem.OnInteract(this, m_duration, m_direction.normalized * m_speed, m_stopCharacter);
-            Camera.main.transform.parent = null;
+            m_panelLeft.enabled = true;
             StartCoroutine(coroutine);
             active = false;
         }

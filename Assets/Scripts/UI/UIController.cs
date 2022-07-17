@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -31,6 +32,8 @@ public class UIController : MonoBehaviour
     public string Victory_Bottomtext;
 
 
+
+
     void OnEnable()
     {
         m_character = FindObjectOfType<Character>();
@@ -39,9 +42,15 @@ public class UIController : MonoBehaviour
         m_character.OnReload += Reload;
         m_character.OnDamaged += Damaged;
         m_character.OnDead += Dead;
-        beerMax = (m_manager.m_totalBeer * 4);
+        Door.OnDoorExit += Win;
 
         
+    }
+
+    private void Start()
+    {
+        
+        beerMax = (m_manager.m_totalBeer * 4);
     }
 
     private void Update()
@@ -57,6 +66,7 @@ public class UIController : MonoBehaviour
         m_character.OnReload -= Reload;
         m_character.OnDamaged -= Damaged;
         m_character.OnDead -= Dead;
+        Door.OnDoorExit -= Win;
     }
 
     private void Shoot(int _bullet)

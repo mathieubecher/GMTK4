@@ -44,14 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc564c8c1414150498573d782e46b9b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_menuMusic:
-    m_eventReference:
-      Guid:
-        Data1: -1303646273
-        Data2: 1235608496
-        Data3: 1097691567
-        Data4: -116678998
-      Path: event:/Music/Mus_MainMenu
   m_mainMusic:
     m_eventReference:
       Guid:
