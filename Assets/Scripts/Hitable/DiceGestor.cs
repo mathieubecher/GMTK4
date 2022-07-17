@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 public class DiceGestor : MonoBehaviour
 {
@@ -38,6 +40,9 @@ public class DiceGestor : MonoBehaviour
     {
         if (_preserveFaceRight)
         {
+            int randomX = Random.Range(1,4);
+            int randomY = Random.Range(1,4);
+            m_faces[m_valueFaceLeft - 1][randomX + randomY * 4] = 1f;
             
             int[] axis = m_valueFaceRight == 1 || m_valueFaceRight == 6 ? axisOne : m_valueFaceRight == 2 || m_valueFaceRight == 5 ? axisTwo : axisThree;
             int numberLeftInAxis = Random.Range(0, 4);
@@ -47,6 +52,10 @@ public class DiceGestor : MonoBehaviour
         }
         else
         {
+            int randomX = Random.Range(1,4);
+            int randomY = Random.Range(1,4);
+            m_faces[m_valueFaceLeft - 1][randomX + randomY * 4] = 1f;
+            
             int[] axis = m_valueFaceLeft == 1 || m_valueFaceLeft == 6 ? axisOne : m_valueFaceLeft == 2 || m_valueFaceLeft == 5 ? axisTwo : axisThree;
             int numberLeftInAxis = Random.Range(0, 4);
             m_valueFaceUp = axis[numberLeftInAxis];
@@ -55,7 +64,16 @@ public class DiceGestor : MonoBehaviour
         }
 
         Draw();
-        return m_valueFaceUp;
+        
+        int score = 0;
+        for (int x = 0; x < 3; ++x)
+        {
+            for (int y = 0; y < 3; ++y)
+            {
+                score += m_faces[m_valueFaceUp-1][x + y * 4] == 1.0f? 1 : 0;
+            }
+        }
+        return score;
     }
 
     public void Draw(int _valueFaceUp)
