@@ -64,7 +64,16 @@ public class DiceGestor : MonoBehaviour
         }
 
         Draw();
-        return m_valueFaceUp;
+        
+        int score = 0;
+        for (int x = 0; x < 3; ++x)
+        {
+            for (int y = 0; y < 3; ++y)
+            {
+                score += m_faces[m_valueFaceUp-1][x + y * 4] == 1.0f? 1 : 0;
+            }
+        }
+        return score;
     }
 
     public void Draw(int _valueFaceUp)
