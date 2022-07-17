@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
 	<object class="MixerGroup" id="{a248ebcd-c7ef-4210-a13f-47c82bd87bb5}">
+		<property name="volume">
+			<value>3</value>
+		</property>
 		<property name="name">
 			<value>MC Voice</value>
+		</property>
+		<property name="maxInstances">
+			<value>1</value>
 		</property>
 		<relationship name="effectChain">
 			<destination>{7140f8b8-2a80-4a09-8d65-7652c3d98611}</destination>
@@ -17,8 +23,20 @@
 	<object class="MixerBusEffectChain" id="{7140f8b8-2a80-4a09-8d65-7652c3d98611}">
 		<relationship name="effects">
 			<destination>{7bfea3f7-9ad7-4f00-a855-4e4571bfac9c}</destination>
+			<destination>{a911134d-0355-4e0b-a214-51893b5ffec7}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{ed7c9826-1bf5-4d47-9bc4-aebcd3c3df46}" />
 	<object class="MixerBusFader" id="{7bfea3f7-9ad7-4f00-a855-4e4571bfac9c}" />
+	<object class="MixerSend" id="{a911134d-0355-4e0b-a214-51893b5ffec7}">
+		<property name="level">
+			<value>0</value>
+		</property>
+		<property name="inputFormat">
+			<value>2</value>
+		</property>
+		<relationship name="mixerReturn">
+			<destination>{066bb345-fd1c-4a78-875b-70cbb2285d1e}</destination>
+		</relationship>
+	</object>
 </objects>
