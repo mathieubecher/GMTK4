@@ -13,7 +13,7 @@ public class Beer : Interact
     public delegate void TakeBeer(Beer _beer);
     public static event TakeBeer OnTakeBeer;
     
-    public delegate void BeerRelease(Beer _beer);
+    public delegate void BeerRelease(Beer _beer, bool _success);
     public static event BeerRelease OnBeerRelease;
     
     public delegate void BeerEmpty(Beer _beer);
@@ -37,7 +37,7 @@ public class Beer : Interact
 
     public override void Success()
     {
-        OnBeerRelease?.Invoke(this);
+        OnBeerRelease?.Invoke(this, true);
         
         --m_nbUse;
         if (m_nbUse <= 0)
@@ -49,5 +49,10 @@ public class Beer : Interact
         {
             m_liquid[i].enabled = false;
         }
+    }
+
+    public override void Fail()
+    {
+        OnBeerRelease?.Invoke(this, false);
     }
 }

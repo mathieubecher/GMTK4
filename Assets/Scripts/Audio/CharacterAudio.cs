@@ -97,7 +97,7 @@ public class CharacterAudio : MonoBehaviour
         m_beerFinishedVoice.PlayOneShot(gameObject);
     }
 
-    private void OnBeerRelease(Beer _beer)
+    private void OnBeerRelease(Beer _beer, bool _success)
     {
         m_drinkVoice.Stop();
         m_beerSet.PlayOneShot(gameObject);

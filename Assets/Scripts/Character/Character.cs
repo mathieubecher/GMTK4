@@ -21,6 +21,7 @@ public class Character : MonoBehaviour
     [Header("Life")] 
     [SerializeField] private float m_invunerabilityDuration = 1.0f;
     [SerializeField] private int m_life = 3;
+    [SerializeField] private SpriteRenderer m_redChara;
 
     // private
     private Controller m_controller;
@@ -56,6 +57,7 @@ public class Character : MonoBehaviour
         m_controller = GetComponent<Controller>();
         m_rigidbody = GetComponent<Rigidbody2D>();
         m_leftBullet = m_magazineSize;
+        m_redChara.enabled = false;
     }
     
     void OnEnable()
@@ -144,6 +146,7 @@ public class Character : MonoBehaviour
     public bool Eat(Eat eat)
     {
         if (!m_canEat) return false;
+        RestartActor();
         StartCoroutine(nameof(Invulnerability));
         return true;
     }
@@ -157,15 +160,17 @@ public class Character : MonoBehaviour
         {
             m_life = 0;
             Dead();
+            m_animator.SetBool("dead", true);
         }
         else
         {
-            
             OnDamaged?.Invoke(m_life);
+            m_animator.SetBool("damaged", true);
         }
-        
+        FindObjectOfType<EffectManager>().Shake(0.4f ,1.0f);
         yield return new WaitForSeconds(m_invunerabilityDuration);
         
+        m_animator.SetBool("damaged", false);
         if (m_life > 0) m_canEat = true;
     }
 

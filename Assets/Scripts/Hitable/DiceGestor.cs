@@ -64,7 +64,7 @@ public class DiceGestor : MonoBehaviour
         int[] axis = m_valueFaceUp == 1 || m_valueFaceUp == 6 ? axisOne : m_valueFaceUp == 2 || m_valueFaceUp == 5 ? axisTwo : axisThree;
         int numberLeftInAxis = Random.Range(0, 4);
         m_valueFaceLeft = axis[numberLeftInAxis];
-        Debug.Log("Preserve Face Right : " + m_valueFaceUp + " " + numberLeftInAxis);
+        // Debug.Log("Preserve Face Right : " + m_valueFaceUp + " " + numberLeftInAxis);
         m_valueFaceRight = axis[(numberLeftInAxis + (m_valueFaceLeft > 3 ? -1 : 1) + 4) % 4];
         Draw();
     }

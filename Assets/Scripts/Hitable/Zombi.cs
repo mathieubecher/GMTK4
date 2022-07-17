@@ -8,11 +8,11 @@ using Random = UnityEngine.Random;
 
 public class Zombi : Hitable
 {
-    [SerializeField] private TextMeshPro m_tmpDiceScoreDisplay;
     [SerializeField] private Animator m_bodyAnimator;
     [SerializeField] private Animator m_headAnimator;
 
     [HideInInspector] public bool stop;
+    [SerializeField] private int m_diceScore = 1;
 
     [Header("AI")] [SerializeField] private float m_defaultSpeed = 1f;
     [SerializeField] private float m_nextWaypointDistance = 1f;
@@ -22,7 +22,6 @@ public class Zombi : Hitable
     [SerializeField] private float m_hitDuration = 1f;
 
     // private
-    private int m_diceScore = 1;
 
     private List<Vector3> m_path;
     private Seeker m_seeker;
@@ -182,7 +181,6 @@ public class Zombi : Hitable
         
         m_diceScore = m_diceGestor.Roll(((m_rigidbody.velocity.x < 0.0f && m_rigidbody.velocity.y < 0.0f) ||
                                          (m_rigidbody.velocity.x > 0.0f && m_rigidbody.velocity.y > 0.0f)));
-        m_tmpDiceScoreDisplay.text = "" + m_diceScore;
         stop = false;
         gameObject.layer = LayerMask.NameToLayer("Zombi");
         RefreshPath();
