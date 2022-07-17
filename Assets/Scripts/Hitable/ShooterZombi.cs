@@ -8,29 +8,39 @@ public class ShooterZombi : Hitable
     [SerializeField] private Animator m_bodyAnimator;
     [SerializeField] private Animator m_headAnimator;
     [SerializeField] private int m_diceScore = 1;
-    
-    [Header("Shoot")] 
-    [SerializeField] private float m_shootCooldown = 6f;
+
+    [Header("Shoot")] [SerializeField] private float m_shootCooldown = 6f;
     [SerializeField] private List<Quaternion> m_shootAngleOffset;
-    
-    [Header("Shoot Spawn")] 
-    [SerializeField] private GameObject m_bullet;
+
+    [Header("Shoot Spawn")] [SerializeField]
+    private GameObject m_bullet;
+
     [SerializeField] private float m_offsetBulletAtSpawn = 0.6f;
-    
-    [Header("Hit")]
-    [SerializeField] private float m_hitDuration = 1f;
-    
+
+    [Header("Hit")] [SerializeField] private float m_hitDuration = 1f;
+
     [HideInInspector] public bool stop;
-    
-    public Animator animator { get => m_bodyAnimator; }
-    public Rigidbody2D rigidbody { get => m_rigidbody; }
-   
+
+    public Animator animator
+    {
+        get => m_bodyAnimator;
+    }
+
+    public Rigidbody2D rigidbody
+    {
+        get => m_rigidbody;
+    }
+
     private DiceGestor m_diceGestor;
     private Character m_character;
     private Rigidbody2D m_rigidbody;
 
     private float m_currentCooldown = 0.0f;
 
+    public Vector2 targetDir{get => (m_character.transform.position - transform.position).normalized; }
+
+public delegate void ShootDelegate();
+    public event ShootDelegate OnShoot;
     private void Awake()
     {
         m_diceGestor = GetComponentInChildren<DiceGestor>();
@@ -99,7 +109,7 @@ public class ShooterZombi : Hitable
     }
     private void UpdateAnim()
     {
-        Vector2 direction = m_character.transform.position - transform.position;
+        Vector2 direction = targetDir;
         m_bodyAnimator.SetFloat("x", direction.x);
         m_bodyAnimator.SetFloat("y", direction.y);
         
@@ -123,7 +133,7 @@ public class ShooterZombi : Hitable
             bullet.origin = this;
             bullet.SetDirection(localDir);
         }
-        
+        OnShoot?.Invoke();
         
         m_currentCooldown = m_shootCooldown;
 

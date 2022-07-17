@@ -17,7 +17,7 @@ public class Eat : MonoBehaviour
     {
         if (m_character && !m_zombi.stop) 
         {
-            if (m_character.Eat(this))
+            if (m_character.Eat())
             {
                 m_zombi.animator.SetTrigger("Attack");
                 Vector2 dir = m_character.transform.position - m_zombi.transform.position;

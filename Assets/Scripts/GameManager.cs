@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
         ++m_totalDrink;
         foreach (SpawnerData spawner in m_spawners)
         {
-            if (m_totalDrink == spawner.nbDrink)
+            if (m_totalDrink == spawner.nbDrink && spawner.spawner)
             {
                 Instantiate(spawner.spawner, spawner.position.position, Quaternion.identity);
             }
