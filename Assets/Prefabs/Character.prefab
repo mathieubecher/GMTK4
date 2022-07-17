@@ -575,14 +575,14 @@ MonoBehaviour:
         Data3: -2002359126
         Data4: -1814499307
       Path: event:/Foleys/Gun/Fol_Gun_Reload
-  m_doorOpenAudio:
+  m_doorExitAudio:
     m_eventReference:
       Guid:
-        Data1: -642242875
-        Data2: 1179536691
-        Data3: 1086653107
-        Data4: 1162629615
-      Path: event:/Foleys/Door/Fol_Door_Open
+        Data1: -2103238307
+        Data2: 1215960566
+        Data3: -1606486630
+        Data4: 1896590477
+      Path: event:/Foleys/Door/Fol_Door_Exit
   m_beerTake:
     m_eventReference:
       Guid:
