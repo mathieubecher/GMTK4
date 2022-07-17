@@ -34,6 +34,7 @@ public class Beer : Interact
         if (m_nbUse <= 0) return;
         OnTakeBeer?.Invoke(this);
         base.InteractAction(_interactSystem);
+        m_tuto.GetComponent<Animator>().SetTrigger("Gauge");
     }
 
     public override void Success()

@@ -69,7 +69,6 @@ public class AudioManager : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
-        /*
         Debug.Log("ALLO");
         if (SceneManager.GetActiveScene().name == "SampleScene")
         {
@@ -85,7 +84,6 @@ public class AudioManager : MonoBehaviour
             m_isMusicPlaying = true;
             m_mainMusic.Play(gameObject);
         }
-        */
     }
 
     private void Start()

@@ -56,7 +56,17 @@ public class UIController : MonoBehaviour
     private void Update()
     {
         drink = m_manager.m_totalDrink;
-        Text_Counter.text = drink + " / " + beerMax;
+        if (drink == beerMax)
+        {
+
+            Text_Counter.text = "GO TO THE EXIT!";
+        }
+        else
+        {
+            Text_Counter.text = drink + " / " + beerMax;
+        }
+        
+        
     }
 
 
