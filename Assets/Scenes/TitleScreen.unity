@@ -1680,6 +1680,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 926358964484490020, guid: c04051d1869aaa543879406e0b2626a0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 26.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 926358964484490021, guid: c04051d1869aaa543879406e0b2626a0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1628961236, guid: f76add763d2b9864e88b0fe6fabee160, type: 3}
+    - target: {fileID: 926358964540110015, guid: c04051d1869aaa543879406e0b2626a0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1628961236, guid: f76add763d2b9864e88b0fe6fabee160, type: 3}
     - target: {fileID: 3805069772396094036, guid: c04051d1869aaa543879406e0b2626a0, type: 3}
       propertyPath: m_submitSFX.m_eventReference.Path
       value: event:/UI/UI_Menu_Play
