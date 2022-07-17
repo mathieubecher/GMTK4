@@ -35,8 +35,12 @@ public class Bullet : MonoBehaviour
     {
         if (_other.TryGetComponent(out Character character))
         {
-            OnHitObject?.Invoke(this, _other.gameObject, ContactType.Character);
-            if (origin) character.Eat();
+            if (origin)
+            {
+                character.Eat();
+                OnHitObject?.Invoke(this, _other.gameObject, ContactType.Character);
+            }
+            else return;
         }
         else if (_other.TryGetComponent(out Bullet bullet))
         {
