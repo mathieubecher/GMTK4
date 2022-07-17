@@ -9,11 +9,21 @@ public class Hand : MonoBehaviour
     [SerializeField] private SpriteRenderer m_sprite;
     [SerializeField] private float m_distance = 0.6f;
     // Start is called before the first frame update
-    void Start()
+    
+    void OnEnable()
     {
-        
+        m_character.OnDead += Dead;
     }
 
+    void OnDisable()
+    {
+        m_character.OnDead -= Dead;
+    }
+
+    void Dead()
+    {
+        gameObject.SetActive(false);
+    }
     // Update is called once per frame
     void Update()
     {
