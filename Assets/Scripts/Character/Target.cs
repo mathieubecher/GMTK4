@@ -20,11 +20,13 @@ public class Target : MonoBehaviour
     void OnEnable()
     {
         m_character.OnDead += Dead;
+        Door.OnDoorExit += Dead;
     }
 
     void OnDisable()
     {
         m_character.OnDead -= Dead;
+        Door.OnDoorExit -= Dead;
     }
 
     void Dead()

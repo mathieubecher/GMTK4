@@ -15,6 +15,7 @@ public class Hand : MonoBehaviour
         m_character.OnShoot += Shoot;
         m_character.OnReload += Reload;
         m_character.OnDead += Dead;
+        Door.OnDoorExit += Dead;
         m_animator = m_sprite.transform.parent.GetComponent<Animator>();
     }
 
@@ -23,6 +24,7 @@ public class Hand : MonoBehaviour
         m_character.OnShoot -= Shoot;
         m_character.OnReload -= Reload;
         m_character.OnDead -= Dead;
+        Door.OnDoorExit -= Dead;
     }
 
     void Dead()
