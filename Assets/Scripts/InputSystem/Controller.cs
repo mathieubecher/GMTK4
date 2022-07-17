@@ -17,7 +17,7 @@ namespace InputSystem
             {
                 if (m_playerInput.currentControlScheme == "Keyboard&Mouse")
                 {
-                    Vector3 mousePos = m_mainCameraRef.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+                    Vector3 mousePos = m_mainCameraRef.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - Vector3.up * 0.91f;
                     Vector3 direction = (mousePos - transform.position);
                     direction.z = 0f;
                     direction.Normalize();
