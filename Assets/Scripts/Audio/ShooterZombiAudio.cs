@@ -6,6 +6,7 @@ public class ShooterZombiAudio : MonoBehaviour
 {
     [Header("Foleys")]
     [SerializeField] private AudioEvent m_impactFoley;
+    [SerializeField] private AudioEvent m_shootFoley;
 
     [Header("SFX")]
     [SerializeField] private AudioEvent m_attackSFX;
@@ -38,8 +39,14 @@ public class ShooterZombiAudio : MonoBehaviour
         {
             Eat.OnEat += OnEat;
             Bullet.OnHitObject += Bullet_OnHitObject;
+            m_zombi.OnShoot += OnShoot;
         }
         m_charT = FindObjectOfType<Character>().transform;
+    }
+
+    private void OnShoot()
+    {
+        m_shootFoley.PlayOneShot(gameObject);
     }
 
     private void Update()
