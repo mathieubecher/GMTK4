@@ -30,5 +30,6 @@ public class Hand : MonoBehaviour
         transform.position = (Vector2) m_character.transform.position + m_character.targetDir * m_distance; 
         
         m_sprite.transform.eulerAngles = new Vector3(0f,0f, Vector2.SignedAngle(Vector2.right, m_character.targetDir));
+        m_sprite.flipY = m_character.targetDir.x < 0;
     }
 }
