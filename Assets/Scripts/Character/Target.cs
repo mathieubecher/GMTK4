@@ -33,6 +33,6 @@ public class Target : MonoBehaviour
     }
     void Update()
     {
-        transform.position = m_character.transform.position + (Vector3)m_direction.normalized * m_distance;
+        transform.position = m_character.transform.position + ((Vector3)m_direction.normalized * m_distance) + Vector3.up * 0.96f;
     }
 }
