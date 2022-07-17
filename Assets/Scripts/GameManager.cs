@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
         public GameObject spawner;
         public Transform position;
     }
+    [Serializable]
     private struct OpenDoorData
     {
         public int nbDrink;
