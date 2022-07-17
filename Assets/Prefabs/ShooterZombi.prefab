@@ -703,7 +703,6 @@ GameObject:
   - component: {fileID: 4227921194414531726}
   - component: {fileID: 3657063041632304968}
   - component: {fileID: 6420701165363404648}
-  - component: {fileID: 4021205488999806282}
   m_Layer: 7
   m_Name: ShooterZombi
   m_TagString: Untagged
@@ -806,66 +805,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &4021205488999806282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3305262698283558858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 598ed9f847b8bd94da107f1144b7ae02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_impactFoley:
-    m_eventReference:
-      Guid:
-        Data1: 63601099
-        Data2: 1175722175
-        Data3: -1898354000
-        Data4: -1305069154
-      Path: event:/Foleys/Bullet/Fol_Bullet_Impact_Dice
-  m_moveFoley:
-    m_eventReference:
-      Guid:
-        Data1: -178709428
-        Data2: 1197121896
-        Data3: -1688931910
-        Data4: -106876564
-      Path: event:/Foleys/Dice/Fol_Dice_Move
-  m_attackSFX:
-    m_eventReference:
-      Guid:
-        Data1: 1279111290
-        Data2: 1246693336
-        Data3: 1146214272
-        Data4: -1805354492
-      Path: event:/Foleys/Dice/Fol_Dice_Attack
-  m_hitSFX:
-    m_eventReference:
-      Guid:
-        Data1: 1372141963
-        Data2: 1272950932
-        Data3: 1715532167
-        Data4: 474740831
-      Path: event:/Foleys/Dice/Fol_Dice_Hit
-  m_nearSFX:
-    m_eventReference:
-      Guid:
-        Data1: -990524845
-        Data2: 1323573204
-        Data3: -1789046135
-        Data4: 2081002484
-      Path: event:/Foleys/Dice/Fol_Dice_Near
-  m_hitMarkerFB:
-    m_eventReference:
-      Guid:
-        Data1: 343953459
-        Data2: 1209248173
-        Data3: 1465950366
-        Data4: 1208290048
-      Path: event:/SFX/SFX_FB_HitMarker
 --- !u!1 &3693293730479221151
 GameObject:
   m_ObjectHideFlags: 0
