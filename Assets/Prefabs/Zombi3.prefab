@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1168067540176645106, guid: 7cc857e1fa85eef46ab3564dfd27e252, type: 3}
       propertyPath: m_Name
-      value: Zombi 3
+      value: Zombi3
       objectReference: {fileID: 0}
     - target: {fileID: 1815569997417260027, guid: 7cc857e1fa85eef46ab3564dfd27e252, type: 3}
       propertyPath: drawGizmos
@@ -62,6 +62,34 @@ PrefabInstance:
     - target: {fileID: 1815569997417260027, guid: 7cc857e1fa85eef46ab3564dfd27e252, type: 3}
       propertyPath: detailedGizmos
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927809628830332084, guid: 7cc857e1fa85eef46ab3564dfd27e252, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927809628830332084, guid: 7cc857e1fa85eef46ab3564dfd27e252, type: 3}
+      propertyPath: m_Size.x
+      value: 2.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927809628830332084, guid: 7cc857e1fa85eef46ab3564dfd27e252, type: 3}
+      propertyPath: m_Size.y
+      value: 1.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927809628830332084, guid: 7cc857e1fa85eef46ab3564dfd27e252, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927809628830332084, guid: 7cc857e1fa85eef46ab3564dfd27e252, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2655237513206007464, guid: 7cc857e1fa85eef46ab3564dfd27e252, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.453
+      objectReference: {fileID: 0}
+    - target: {fileID: 2655237513206007464, guid: 7cc857e1fa85eef46ab3564dfd27e252, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.282
       objectReference: {fileID: 0}
     - target: {fileID: 4283658609205409417, guid: 7cc857e1fa85eef46ab3564dfd27e252, type: 3}
       propertyPath: m_Materials.Array.data[0]
