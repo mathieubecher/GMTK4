@@ -893,7 +893,7 @@ GameObject:
   - component: {fileID: 4227921194414531726}
   - component: {fileID: 3657063041632304968}
   - component: {fileID: 6420701165363404648}
-  - component: {fileID: 4021205488999806282}
+  - component: {fileID: 1773968604987402613}
   m_Layer: 7
   m_Name: ShooterZombi
   m_TagString: Untagged
@@ -997,7 +997,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &4021205488999806282
+--- !u!114 &1773968604987402613
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1006,7 +1006,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3305262698283558858}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 598ed9f847b8bd94da107f1144b7ae02, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c70704fa43aa7b4492208edf9051eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_impactFoley:
@@ -1017,14 +1017,14 @@ MonoBehaviour:
         Data3: -1898354000
         Data4: -1305069154
       Path: event:/Foleys/Bullet/Fol_Bullet_Impact_Dice
-  m_moveFoley:
+  m_shootFoley:
     m_eventReference:
       Guid:
-        Data1: -178709428
-        Data2: 1197121896
-        Data3: -1688931910
-        Data4: -106876564
-      Path: event:/Foleys/Dice/Fol_Dice_Move
+        Data1: 2002756896
+        Data2: 1124136873
+        Data3: 1725412763
+        Data4: -1685476016
+      Path: event:/Foleys/Gun/Fol_Gun_ZombiShoot
   m_attackSFX:
     m_eventReference:
       Guid:
