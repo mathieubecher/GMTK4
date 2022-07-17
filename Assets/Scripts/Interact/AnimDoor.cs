@@ -5,15 +5,12 @@ using UnityEngine;
 public class AnimDoor : MonoBehaviour
 {
     public Sprite m_doorOpen;
-    // Start is called before the first frame update
-    void Start()
+    
+    public delegate void DoorOpen(AnimDoor _animDoor);
+    public static event DoorOpen OnDoorOpen;
+    public void Open()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        OnDoorOpen?.Invoke(this);
+        GetComponent<SpriteRenderer>().sprite = m_doorOpen;
     }
 }
