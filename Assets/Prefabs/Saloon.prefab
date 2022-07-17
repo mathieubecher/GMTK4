@@ -1146,6 +1146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8958368498216911600}
   - component: {fileID: 8958368498216911601}
+  - component: {fileID: 740383746}
   m_Layer: 0
   m_Name: DoorRight
   m_TagString: Untagged
@@ -1220,6 +1221,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &740383746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8958368498216911614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b8880295f892643b2085cdceb56a9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_doorOpen: {fileID: 0}
 --- !u!1 &8958368498217717339
 GameObject:
   m_ObjectHideFlags: 0
@@ -2242,6 +2256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8958368498791427535}
   - component: {fileID: 8958368498791427534}
+  - component: {fileID: 505600250}
   m_Layer: 0
   m_Name: DoorRight2
   m_TagString: Untagged
@@ -2316,6 +2331,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &505600250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8958368498791427532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b8880295f892643b2085cdceb56a9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_doorOpen: {fileID: 0}
 --- !u!1 &8958368498824910918
 GameObject:
   m_ObjectHideFlags: 0
@@ -4064,6 +4092,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6511947743854564765, guid: e901365ba7df2c24386a220980ae976e, type: 3}
   m_PrefabInstance: {fileID: 2742007552104839188}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8958368499822898582 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6511947743854564738, guid: e901365ba7df2c24386a220980ae976e, type: 3}
+  m_PrefabInstance: {fileID: 2742007552104839188}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &380580675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8958368499822898582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b8880295f892643b2085cdceb56a9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_doorOpen: {fileID: 0}
 --- !u!1001 &4063886110897303445
 PrefabInstance:
   m_ObjectHideFlags: 0

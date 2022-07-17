@@ -12,8 +12,14 @@ public class GameManager : MonoBehaviour
         public GameObject spawner;
         public Transform position;
     }
+    private struct OpenDoorData
+    {
+        public int nbDrink;
+        public AnimDoor door;
+    }
 
     [SerializeField] private List<SpawnerData> m_spawners;
+    [SerializeField] private List<OpenDoorData> m_doors;
     [SerializeField] private Door m_door;
     private int m_totalBeer;
     private int m_totalDrink = 0;
@@ -48,6 +54,13 @@ public class GameManager : MonoBehaviour
             if (m_totalDrink == spawner.nbDrink && spawner.spawner)
             {
                 Instantiate(spawner.spawner, spawner.position.position, Quaternion.identity);
+            }
+        }
+        foreach (OpenDoorData door in m_doors)
+        {
+            if (m_totalDrink == door.nbDrink && door.door)
+            {
+                
             }
         }
     }
