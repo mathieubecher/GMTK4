@@ -143,7 +143,7 @@ public class Character : MonoBehaviour
         stop = false;
     }
 
-    public bool Eat(Eat eat)
+    public bool Eat()
     {
         if (!m_canEat) return false;
         RestartActor();
