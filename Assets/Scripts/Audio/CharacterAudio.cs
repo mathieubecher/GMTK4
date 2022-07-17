@@ -81,7 +81,7 @@ public class CharacterAudio : MonoBehaviour
         else if (m_beerComboCurrentTime != 0)
             m_beerComboCurrentTime = 0;
         m_moveFoley.SetParameter("EntitySpeed", m_character.currentSpeed / 4f);
-        Debug.Log($"Speed = {m_character.currentSpeed}");
+        //Debug.Log($"Speed = {m_character.currentSpeed}");
     }
 
     private void OnBeerEmpty(Beer _beer)
@@ -90,7 +90,7 @@ public class CharacterAudio : MonoBehaviour
         m_beerFinishedVoice.PlayOneShot(gameObject);
     }
 
-    private void OnBeerRelease(Beer _beer)
+    private void OnBeerRelease(Beer _beer, bool _success)
     {
         m_drinkVoice.Stop();
         m_beerSet.PlayOneShot(gameObject);

@@ -72,11 +72,15 @@ public class InteractSystem : MonoBehaviour
         
         yield return new WaitForSeconds(_duration);
 
+        m_canInteract = true;
         if (m_character.stop)
         {
-            m_canInteract = true;
             if(_stopCharacter) m_character.RestartActor();
             _interact.Success();
+        }
+        else
+        {
+            _interact.Fail();
         }
         
     }

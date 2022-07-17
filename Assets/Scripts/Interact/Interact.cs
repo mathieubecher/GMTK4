@@ -28,4 +28,8 @@ public class Interact : MonoBehaviour
     {
         
     }
+    public virtual void Fail()
+    {
+        
+    }
 }

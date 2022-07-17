@@ -144,6 +144,7 @@ public class Character : MonoBehaviour
     public bool Eat(Eat eat)
     {
         if (!m_canEat) return false;
+        RestartActor();
         StartCoroutine(nameof(Invulnerability));
         return true;
     }
