@@ -549,7 +549,7 @@ MonoBehaviour:
     m_ActionName: UI/TrackedDeviceOrientation
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: 57487944-d7d9-4de8-a71d-a366adc9efa6
+  m_DefaultActionMap: UI
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1001 &1076929818
@@ -1680,38 +1680,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 926358964484490020, guid: c04051d1869aaa543879406e0b2626a0, type: 3}
-      propertyPath: m_LocalScale.x
-      value: -1
+    - target: {fileID: 3805069772396094036, guid: c04051d1869aaa543879406e0b2626a0, type: 3}
+      propertyPath: m_submitSFX.m_eventReference.Path
+      value: event:/UI/UI_Menu_Play
       objectReference: {fileID: 0}
-    - target: {fileID: 926358964484490020, guid: c04051d1869aaa543879406e0b2626a0, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
+    - target: {fileID: 3805069772396094036, guid: c04051d1869aaa543879406e0b2626a0, type: 3}
+      propertyPath: m_submitSFX.m_eventReference.Guid.Data1
+      value: 1464797924
       objectReference: {fileID: 0}
-    - target: {fileID: 926358964484490020, guid: c04051d1869aaa543879406e0b2626a0, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
+    - target: {fileID: 3805069772396094036, guid: c04051d1869aaa543879406e0b2626a0, type: 3}
+      propertyPath: m_submitSFX.m_eventReference.Guid.Data2
+      value: 1202080246
       objectReference: {fileID: 0}
-    - target: {fileID: 926358964484490020, guid: c04051d1869aaa543879406e0b2626a0, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 89.62
+    - target: {fileID: 3805069772396094036, guid: c04051d1869aaa543879406e0b2626a0, type: 3}
+      propertyPath: m_submitSFX.m_eventReference.Guid.Data3
+      value: -1700595316
       objectReference: {fileID: 0}
-    - target: {fileID: 926358964484490020, guid: c04051d1869aaa543879406e0b2626a0, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -16
+    - target: {fileID: 3805069772396094036, guid: c04051d1869aaa543879406e0b2626a0, type: 3}
+      propertyPath: m_submitSFX.m_eventReference.Guid.Data4
+      value: 192270331
       objectReference: {fileID: 0}
-    - target: {fileID: 926358964484490020, guid: c04051d1869aaa543879406e0b2626a0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 926358964484490021, guid: c04051d1869aaa543879406e0b2626a0, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 1628961236, guid: f76add763d2b9864e88b0fe6fabee160, type: 3}
-    - target: {fileID: 926358964540110015, guid: c04051d1869aaa543879406e0b2626a0, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 1628961236, guid: f76add763d2b9864e88b0fe6fabee160, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c04051d1869aaa543879406e0b2626a0, type: 3}
 --- !u!1001 &1086592905370482556

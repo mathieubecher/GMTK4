@@ -16,7 +16,7 @@
 			<value>2</value>
 		</property>
 		<property name="maximum">
-			<value>6</value>
+			<value>7</value>
 		</property>
 		<property name="enumerationLabels">
 			<value>Beer0</value>
@@ -25,12 +25,13 @@
 			<value>Beer3</value>
 			<value>Beer4</value>
 			<value>Ending</value>
+			<value>MainTitle</value>
 		</property>
 		<property name="isGlobal">
 			<value>true</value>
 		</property>
 		<property name="initialValue">
-			<value>0</value>
+			<value>6</value>
 		</property>
 		<property name="isExposedRecursively">
 			<value>false</value>
