@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class Target : MonoBehaviour
 {
-    [SerializeField] private Transform m_character;
+    [SerializeField] private Character m_character;
     [SerializeField] private float m_distance = 10;
     private Vector2 m_direction = Vector2.down;
     public Vector2 direction
@@ -17,9 +17,22 @@ public class Target : MonoBehaviour
     {
         
     }
+    void OnEnable()
+    {
+        m_character.OnDead += Dead;
+    }
 
+    void OnDisable()
+    {
+        m_character.OnDead -= Dead;
+    }
+
+    void Dead()
+    {
+        gameObject.SetActive(false);
+    }
     void Update()
     {
-        transform.position = m_character.position + (Vector3)m_direction.normalized * m_distance;
+        transform.position = m_character.transform.position + (Vector3)m_direction.normalized * m_distance;
     }
 }

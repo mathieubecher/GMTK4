@@ -35,6 +35,8 @@ public class Zombi : Hitable
     //getter
     public float maxSpeed { get => m_diceScore * m_defaultSpeed; }
     public float currentSpeed { get => m_rigidbody.velocity.magnitude; }
+    public Animator animator { get => m_bodyAnimator; }
+    public Rigidbody2D rigidbody { get => m_rigidbody; }
 
     private void Awake()
     {
@@ -111,7 +113,7 @@ public class Zombi : Hitable
     {
         m_bodyAnimator.SetFloat("x", (stop ? -1f : 1f) * m_rigidbody.velocity.x);
         m_bodyAnimator.SetFloat("y", (stop ? -1f : 1f) * m_rigidbody.velocity.y);
-
+        
         m_headAnimator.SetFloat("x", m_rigidbody.velocity.x);
         m_headAnimator.SetFloat("y", m_rigidbody.velocity.y);
         m_headAnimator.SetBool("roll", stop);

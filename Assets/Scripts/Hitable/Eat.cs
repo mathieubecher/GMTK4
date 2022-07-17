@@ -19,7 +19,11 @@ public class Eat : MonoBehaviour
         {
             if (m_character.Eat(this))
             {
-                OnEat?.Invoke(GetComponent<Zombi>());
+                m_zombi.animator.SetTrigger("Attack");
+                Vector2 dir = m_character.transform.position - m_zombi.transform.position;
+                m_zombi.animator.SetFloat("hitDirX", dir.x);
+                m_zombi.animator.SetFloat("hitDirY",  dir.y);
+                OnEat?.Invoke(m_zombi);
             }
         }
     }
