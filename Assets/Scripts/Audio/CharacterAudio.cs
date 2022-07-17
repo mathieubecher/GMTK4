@@ -13,6 +13,7 @@ public class CharacterAudio : MonoBehaviour
     [SerializeField] private AudioEvent m_burpVoice;
     [SerializeField] private AudioEvent m_painVoice;
     [SerializeField] private AudioEvent m_deathVoice;
+    [SerializeField] private AudioEvent m_victoryVoice;
 
     [Header("Character Feedbacks")]
     [SerializeField] private AudioEvent m_beerFinishedFB;
@@ -30,6 +31,7 @@ public class CharacterAudio : MonoBehaviour
     [SerializeField] private AudioEvent m_beerSet;
 
     private Character m_character;
+    private int m_drinkedBeer;
 
     private int m_beerComboCounter;
     private float m_beerComboTimer;
@@ -67,12 +69,14 @@ public class CharacterAudio : MonoBehaviour
         m_beerComboTimer = 2f;
         m_beerComboCurrentTime = 0f;
         m_moveFoley.Play(gameObject);
+        m_drinkedBeer = 0;
     }
 
     private void OnDoorExit()
     {
         m_doorExitAudio.PlayOneShot(gameObject);
         m_beerFinishedFB.PlayOneShot(gameObject);
+        m_victoryVoice.PlayOneShot(gameObject);
     }
 
     private void Update()
@@ -93,8 +97,10 @@ public class CharacterAudio : MonoBehaviour
 
     private void OnBeerEmpty(Beer _beer)
     {
+        m_drinkedBeer++;
         m_beerFinishedFB.PlayOneShot(gameObject);
         m_beerFinishedVoice.PlayOneShot(gameObject);
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("MusicStates", m_drinkedBeer);
     }
 
     private void OnBeerRelease(Beer _beer, bool _success)

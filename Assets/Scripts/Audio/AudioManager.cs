@@ -1,18 +1,50 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static AudioManager instance;
+
+    [SerializeField] private AudioEvent m_menuMusic;
+    [SerializeField] private AudioEvent m_mainMusic;
+
+    private void Awake()
     {
-        
+        if (instance)
+            Destroy(this);
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnLevelWasLoaded(int level)
     {
-        
+        if (SceneManager.GetActiveScene().name == "SampleScene")
+        {
+            m_menuMusic.Stop();
+            m_mainMusic.Play(gameObject);
+        }
+        else
+        {
+            m_mainMusic.Stop();
+            m_menuMusic.Play(gameObject);
+        }
+    }
+
+    private void Start()
+    {
+        Debug.Log(SceneManager.GetActiveScene().name);
+        if (SceneManager.GetActiveScene().name == "SampleScene")
+        {
+            m_mainMusic.Play(gameObject);
+        }
+        else
+        {
+            m_menuMusic.Play(gameObject);
+        }
     }
 }
