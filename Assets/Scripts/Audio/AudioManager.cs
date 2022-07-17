@@ -34,12 +34,6 @@ public class AudioManager : MonoBehaviour
             FMODUnity.RuntimeManager.StudioSystem.getParameterByName("MusicStates", out value);
             Debug.Log($"Music state = {value}");
         }
-        if (!m_isMusicPlaying)
-        {
-            Debug.Log("Playing music");
-            m_isMusicPlaying = true;
-            m_mainMusic.Play(gameObject);
-        }
     }
 
     private void OnDisable()
@@ -91,6 +85,17 @@ public class AudioManager : MonoBehaviour
             m_mainMusic.Play(gameObject);
         }
         */
+    }
+
+    private void Start()
+    {
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("MusicStates", 6);
+        if (!m_isMusicPlaying)
+        {
+            Debug.Log("Playing music");
+            m_isMusicPlaying = true;
+            m_mainMusic.Play(gameObject);
+        }
     }
 
     private IEnumerator DestroyCooldown(GameObject _emitter)
