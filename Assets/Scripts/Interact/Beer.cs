@@ -7,7 +7,8 @@ using UnityEngine;
 public class Beer : Interact
 {
     [SerializeField] private GameObject m_tuto;
-    [SerializeField] private List<SpriteRenderer> m_liquid;
+    [SerializeField] private List<Sprite> m_liquid;
+    [SerializeField] private SpriteRenderer m_renderer;
     [SerializeField] private int m_nbUse = 4; 
     
     public delegate void TakeBeer(Beer _beer);
@@ -45,10 +46,8 @@ public class Beer : Interact
             m_nbUse = 0;
             OnBeerEmpty?.Invoke(this);
         }
-        for (int i = m_liquid.Count - 1; i >= m_nbUse; --i)
-        {
-            m_liquid[i].enabled = false;
-        }
+        
+        m_renderer.sprite = m_liquid[4 - m_nbUse];
     }
 
     public override void Fail()

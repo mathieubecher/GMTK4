@@ -3417,16 +3417,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_spawners:
   - nbDrink: 1
-    spawner: {fileID: 4302414365641674775, guid: dbf1176649b10cf4082c01a7b709ad5d, type: 3}
+    spawner: {fileID: 5721228918770766417, guid: 7c6d2cc4d2d007c4aad9fc24be3764b4, type: 3}
     position: {fileID: 8958368498549261577}
   - nbDrink: 3
-    spawner: {fileID: 2081341904420209573, guid: b6fad1e1efd71ca4682fa7cc67f09716, type: 3}
+    spawner: {fileID: 4302414365641674775, guid: dbf1176649b10cf4082c01a7b709ad5d, type: 3}
     position: {fileID: 8958368498774642037}
   - nbDrink: 5
     spawner: {fileID: 5721228918770766417, guid: 7c6d2cc4d2d007c4aad9fc24be3764b4, type: 3}
     position: {fileID: 8958368499155362846}
   - nbDrink: 8
-    spawner: {fileID: 3678840496028973547, guid: 0c11c37b44ba0204e9006de0c7816edc, type: 3}
+    spawner: {fileID: 2081341904420209573, guid: b6fad1e1efd71ca4682fa7cc67f09716, type: 3}
     position: {fileID: 8958368499155362846}
   - nbDrink: 10
     spawner: {fileID: 4302414365641674775, guid: dbf1176649b10cf4082c01a7b709ad5d, type: 3}
@@ -3441,11 +3441,8 @@ MonoBehaviour:
     spawner: {fileID: 2081341904420209573, guid: b6fad1e1efd71ca4682fa7cc67f09716, type: 3}
     position: {fileID: 8958368499155362846}
   - nbDrink: 13
-    spawner: {fileID: 3678840496028973547, guid: 0c11c37b44ba0204e9006de0c7816edc, type: 3}
+    spawner: {fileID: 2081341904420209573, guid: b6fad1e1efd71ca4682fa7cc67f09716, type: 3}
     position: {fileID: 8958368498774642037}
-  - nbDrink: 14
-    spawner: {fileID: 3678840496028973547, guid: 0c11c37b44ba0204e9006de0c7816edc, type: 3}
-    position: {fileID: 8958368498549261577}
   - nbDrink: 15
     spawner: {fileID: 3678840496028973547, guid: 0c11c37b44ba0204e9006de0c7816edc, type: 3}
     position: {fileID: 8958368499155362846}
@@ -3477,8 +3474,6 @@ MonoBehaviour:
     door: {fileID: 380580675}
   - nbDrink: 15
     door: {fileID: 380580675}
-  - nbDrink: 14
-    door: {fileID: 505600250}
   - nbDrink: 9
     door: {fileID: 505600250}
   - nbDrink: 12
