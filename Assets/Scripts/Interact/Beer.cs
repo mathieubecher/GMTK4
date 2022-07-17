@@ -53,7 +53,7 @@ public class Beer : Interact
 
     public override void Fail()
     {
-        OnBeerRelease?.Invoke(this, false);
         m_tuto.GetComponent<Animator>().SetTrigger("CutGauge");
+        OnBeerRelease?.Invoke(this, false);
     }
 }

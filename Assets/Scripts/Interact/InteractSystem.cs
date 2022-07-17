@@ -18,11 +18,22 @@ public class InteractSystem : MonoBehaviour
     {
         m_controller = GetComponent<Controller>();
         m_controller.OnInteract += Interact;
+        m_character.OnDamaged += Damaged;
     }
 
     void OnDisable()
     {
         m_controller.OnInteract -= Interact;
+        m_character.OnDamaged -= Damaged;
+    }
+
+    private void Damaged(int _life)
+    {
+        if (currentInteract)
+        {
+            currentInteract.Fail();
+            currentInteract = null;
+        }
     }
 
     private void Awake()
@@ -65,23 +76,19 @@ public class InteractSystem : MonoBehaviour
         }
     }
 
+    private Interact currentInteract;
     public IEnumerator OnInteract(Interact _interact, float _duration, Vector2 _velocity, bool _stopCharacter)
     {
         m_canInteract = false;
         if(_stopCharacter) m_character.StopActor( _velocity);
-        
+        currentInteract = _interact;
         yield return new WaitForSeconds(_duration);
 
         m_canInteract = true;
-        if (m_character.stop)
+        if (m_character.stop && currentInteract)
         {
             if(_stopCharacter) m_character.RestartActor();
             _interact.Success();
         }
-        else
-        {
-            _interact.Fail();
-        }
-        
     }
 }

@@ -66,6 +66,8 @@ public class Zombi : Hitable
     private void DisableZombi()
     {
         m_rigidbody.velocity = Vector2.zero;
+        m_rigidbody.isKinematic = true;
+        
         UpdateAnim();
         enabled = false;
         m_headAnimator.SetBool("disable", true);
@@ -73,6 +75,7 @@ public class Zombi : Hitable
 
     private void EnableZombi()
     {
+        m_rigidbody.isKinematic = false;
         enabled = true;
         m_headAnimator.SetBool("disable", false);
     }
