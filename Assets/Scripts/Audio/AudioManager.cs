@@ -67,25 +67,6 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private void OnLevelWasLoaded(int level)
-    {
-        Debug.Log("ALLO");
-        if (SceneManager.GetActiveScene().name == "SampleScene")
-        {
-            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("MusicStates", 0);
-        }
-        else if (SceneManager.GetActiveScene().name == "TitleScreen")
-        {
-            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("MusicStates", 6);
-        }
-        if (!m_isMusicPlaying)
-        {
-            Debug.Log("Playing music");
-            m_isMusicPlaying = true;
-            m_mainMusic.Play(gameObject);
-        }
-    }
-
     private void Start()
     {
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("MusicStates", 6);
