@@ -133,7 +133,7 @@ public delegate void ShootDelegate();
             bullet.origin = this;
             bullet.SetDirection(localDir);
         }
-        
+        OnShoot?.Invoke();
         
         m_currentCooldown = m_shootCooldown;
 
