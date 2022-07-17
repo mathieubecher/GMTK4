@@ -156,6 +156,7 @@ public delegate void ShootDelegate();
         m_diceScore = m_diceGestor.Roll(((m_rigidbody.velocity.x < 0.0f && m_rigidbody.velocity.y < 0.0f) ||
                                          (m_rigidbody.velocity.x > 0.0f && m_rigidbody.velocity.y > 0.0f)));
         
+        m_currentCooldown = m_shootCooldown;
         stop = false;
     }
 }
