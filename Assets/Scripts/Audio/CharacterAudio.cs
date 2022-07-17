@@ -74,6 +74,7 @@ public class CharacterAudio : MonoBehaviour
 
     private void OnDoorExit()
     {
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("MusicStates", 5);
         m_doorExitAudio.PlayOneShot(gameObject);
         m_beerFinishedFB.PlayOneShot(gameObject);
         m_victoryVoice.PlayOneShot(gameObject);
@@ -130,6 +131,7 @@ public class CharacterAudio : MonoBehaviour
     {
         m_hitFB.PlayOneShot(gameObject);
         m_deathVoice.PlayOneShot(gameObject);
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("MusicStates", 5);
     }
 
     private void OnDamaged(int _life)

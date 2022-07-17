@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{b2d0b73f-227b-40de-ae54-3a3116569b35}">
+		<property name="assetPath">
+			<value>Foleys/Breakables/Glass Break_04.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>1.5827291666666667</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{9611ae63-799b-4ca7-8033-7ff5d3bfdda0}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -2,18 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnviroAudio : MonoBehaviour
+public class EnviroAudio : Hitable
 {
-    [Header("Foley")]
-    [SerializeField] private AudioEvent m_hitFoley;
-
-    private void OnEnable()
+    [SerializeField] private AudioEvent m_hitEvent;
+    public override void Hit(Bullet _bullet)
     {
-
-    }
-
-    private void OnDisable()
-    {
-
+        GameObject emitter = new GameObject();
+        emitter.transform.position = _bullet.transform.position;
+        m_hitEvent.PlayOneShot(emitter);
     }
 }
