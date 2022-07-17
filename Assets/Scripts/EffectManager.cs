@@ -38,4 +38,19 @@ public class EffectManager : MonoBehaviour
         yield return new WaitForSeconds(_duration * Time.timeScale);
         noise.m_AmplitudeGain = 0f;
     }
+
+    public void OnBulletTouch(Bullet _bullet, Hitable _other)
+    {
+        if (_other.TryGetComponent(out Character character))
+        {
+            
+        }
+        else if (_other.TryGetComponent(out Bullet bullet))
+        {
+            
+        }
+        else if (_other.TryGetComponent(out Hitable hit))
+        {
+        }
+    }
 }

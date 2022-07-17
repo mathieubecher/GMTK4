@@ -6,12 +6,20 @@ using UnityEngine.Serialization;
 
 public class Bullet : MonoBehaviour
 {
+    public enum ContactType
+    {
+        Character,
+        Zombi,
+        Wall,
+        Breakable
+    }
+    
     private Rigidbody2D m_rigidbody;
     [FormerlySerializedAs("speed")] [SerializeField] private float m_speed = 10.0f;
     public float speed { get; set; }
     [HideInInspector] public ShooterZombi origin;
     
-    public delegate void HitObjectDelegate(Bullet _bullet, Hitable _hit);
+    public delegate void HitObjectDelegate(Bullet _bullet, GameObject _hit, ContactType _contactType);
     public static event HitObjectDelegate OnHitObject;
     private void Awake()
     {
@@ -27,6 +35,7 @@ public class Bullet : MonoBehaviour
     {
         if (_other.TryGetComponent(out Character character))
         {
+            OnHitObject?.Invoke(this, _other.gameObject, ContactType.Character);
             if (origin) character.Eat();
         }
         else if (_other.TryGetComponent(out Bullet bullet))
@@ -37,8 +46,12 @@ public class Bullet : MonoBehaviour
         {
             if (hit == origin) return;
                 
-            OnHitObject?.Invoke(this, hit);
+            OnHitObject?.Invoke(this,  _other.gameObject, hit is Zombi || hit is ShooterZombi ? ContactType.Zombi : ContactType.Breakable);
             hit.Hit(this);
+        }
+        else
+        {
+            OnHitObject?.Invoke(this, _other.gameObject,  ContactType.Wall);
         }
         Destroy(gameObject);
     }
