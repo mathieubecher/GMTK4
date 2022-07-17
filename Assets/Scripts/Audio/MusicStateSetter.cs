@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class MusicStateSetter : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private int m_musicState;
+
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("MusicStates", m_musicState);
     }
 }
