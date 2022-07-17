@@ -23,7 +23,7 @@ public class CharacterAudio : MonoBehaviour
     [SerializeField] private AudioEvent m_gunReloadAudio;
 
     [Header("Door Foleys")]
-    [SerializeField] private AudioEvent m_doorOpenAudio;
+    [SerializeField] private AudioEvent m_doorExitAudio;
 
     [Header("Beer foleys")]
     [SerializeField] private AudioEvent m_beerTake;
@@ -46,6 +46,7 @@ public class CharacterAudio : MonoBehaviour
             Beer.OnTakeBeer -= OnTakeBeer;
             Beer.OnBeerRelease -= OnBeerRelease;
             Beer.OnBeerEmpty -= OnBeerEmpty;
+            Door.OnDoorExit -= OnDoorExit;
         }
     }
 
@@ -61,10 +62,17 @@ public class CharacterAudio : MonoBehaviour
             Beer.OnTakeBeer += OnTakeBeer;
             Beer.OnBeerRelease += OnBeerRelease;
             Beer.OnBeerEmpty += OnBeerEmpty;
+            Door.OnDoorExit += OnDoorExit;
         }
         m_beerComboTimer = 2f;
         m_beerComboCurrentTime = 0f;
         m_moveFoley.Play(gameObject);
+    }
+
+    private void OnDoorExit()
+    {
+        m_doorExitAudio.PlayOneShot(gameObject);
+        m_beerFinishedFB.PlayOneShot(gameObject);
     }
 
     private void Update()
@@ -81,7 +89,6 @@ public class CharacterAudio : MonoBehaviour
         else if (m_beerComboCurrentTime != 0)
             m_beerComboCurrentTime = 0;
         m_moveFoley.SetParameter("EntitySpeed", m_character.currentSpeed / 4f);
-        //Debug.Log($"Speed = {m_character.currentSpeed}");
     }
 
     private void OnBeerEmpty(Beer _beer)
