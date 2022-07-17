@@ -3408,8 +3408,11 @@ MonoBehaviour:
     position: {fileID: 4424321275084065479}
   - nbDrink: 12
     spawner: {fileID: 3305262698283558858, guid: acc2ffa0ac986ec408583a36eddb710a, type: 3}
-    position: {fileID: 8958368498549261577}
+    position: {fileID: 5876797796982369420}
+  m_doors: []
   m_door: {fileID: 8958368498260632651}
+  m_totalBeer: 0
+  m_totalDrink: 0
 --- !u!1 &8958368499434698695
 GameObject:
   m_ObjectHideFlags: 0
