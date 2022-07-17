@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
         {
             if (m_totalDrink == door.nbDrink && door.door)
             {
-                
+                door.door.Open();
             }
         }
     }

@@ -29,6 +29,7 @@ public class Door : Interact
             IEnumerator coroutine = _interactSystem.OnInteract(this, m_duration, m_direction.normalized * m_speed, m_stopCharacter);
             Camera.main.transform.parent = null;
             StartCoroutine(coroutine);
+            active = false;
         }
     }
     public override void InteractAction(InteractSystem _interactSystem)
