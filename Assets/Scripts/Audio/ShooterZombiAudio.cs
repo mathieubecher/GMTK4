@@ -72,7 +72,7 @@ public class ShooterZombiAudio : MonoBehaviour
                 if (_zombi == m_zombi)
                 {
                     m_hitSFX.PlayOneShot(gameObject);
-                    m_hitMarkerFB.PlayOneShot(gameObject);
+                    //m_hitMarkerFB.PlayOneShot(gameObject);
                     m_impactFoley.PlayOneShot(gameObject);
 
                 }
