@@ -1335,7 +1335,8 @@ MonoBehaviour:
   Defeat_Bottomtext: You are Wasted. (because Dice Zombies killed you)
   Victory_Bigtext: WASTED
   Victory_Smalltext: Dead or Alive (but mostly alive)
-  Victory_Bottomtext: You are Wasted. (because you drank too much beer)
+  Victory_Bottomtext: You are Wasted. (because you drank too much beer) Rick Roll
+    the dice!
 --- !u!223 &1801389586453373806
 Canvas:
   m_ObjectHideFlags: 0
