@@ -534,6 +534,14 @@ MonoBehaviour:
         Data3: -225605445
         Data4: 866498639
       Path: event:/Voices/MC/Vo_MC_Death
+  m_victoryVoice:
+    m_eventReference:
+      Guid:
+        Data1: 1789996517
+        Data2: 1103705065
+        Data3: -701181769
+        Data4: 386465729
+      Path: event:/Voices/MC/Vo_MC_End
   m_beerFinishedFB:
     m_eventReference:
       Guid:
