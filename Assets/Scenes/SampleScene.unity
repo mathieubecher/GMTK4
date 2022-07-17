@@ -1823,6 +1823,10 @@ PrefabInstance:
       value: Character
       objectReference: {fileID: 0}
     - target: {fileID: 5910003033151645944, guid: 7c7c6a9a471e0d74f836dec90268d195, type: 3}
+      propertyPath: m_life
+      value: 56
+      objectReference: {fileID: 0}
+    - target: {fileID: 5910003033151645944, guid: 7c7c6a9a471e0d74f836dec90268d195, type: 3}
       propertyPath: m_target
       value: 
       objectReference: {fileID: 501223015}
