@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Beer : Interact
 {
-    [SerializeField] private TextMeshPro m_tuto;
+    [SerializeField] private GameObject m_tuto;
     [SerializeField] private List<SpriteRenderer> m_liquid;
     [SerializeField] private int m_nbUse = 4; 
     
@@ -21,11 +21,11 @@ public class Beer : Interact
     
     public override void EnterZone(InteractSystem _interactSystem)
     {
-        m_tuto.enabled = true;
+        m_tuto.SetActive(true);
     }
     public override void ExitZone(InteractSystem _interactSystem)
     {
-        m_tuto.enabled = false;
+        m_tuto.SetActive(false);
     }
 
     public override void InteractAction(InteractSystem _interactSystem)
