@@ -9,6 +9,28 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private AudioEvent m_menuMusic;
     [SerializeField] private AudioEvent m_mainMusic;
+    [SerializeField] private AudioEvent m_bulletWoodImpact;
+
+    private void OnEnable()
+    {
+        Bullet.OnHitObject += Bullet_OnHitObject;
+    }
+
+    private void OnDisable()
+    {
+        Bullet.OnHitObject -= Bullet_OnHitObject;
+    }
+
+    private void Bullet_OnHitObject(Bullet _bullet, GameObject _hit, Bullet.ContactType _contactType)
+    {
+        if (_contactType == Bullet.ContactType.Wall)
+        {
+            GameObject emitter = new GameObject();
+            emitter.transform.position = _bullet.transform.position;
+            m_bulletWoodImpact.PlayOneShot(emitter);
+            StartCoroutine(DestroyCooldown(emitter));
+        }
+    }
 
     private void Awake()
     {
@@ -46,5 +68,11 @@ public class AudioManager : MonoBehaviour
         {
             m_menuMusic.Play(gameObject);
         }
+    }
+
+    private IEnumerator DestroyCooldown(GameObject _emitter)
+    {
+        yield return new WaitForSeconds(2f);
+        Destroy(_emitter);
     }
 }

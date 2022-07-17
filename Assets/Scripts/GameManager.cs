@@ -22,8 +22,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<SpawnerData> m_spawners;
     [SerializeField] private List<OpenDoorData> m_doors;
     [SerializeField] private Door m_door;
-    private int m_totalBeer;
-    private int m_totalDrink = 0;
+    public int m_totalBeer;
+    public int m_totalDrink = 0;
     
     void OnEnable()
     {

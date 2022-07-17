@@ -60,3 +60,11 @@ MonoBehaviour:
         Data3: 1097691567
         Data4: -116678998
       Path: event:/Music/Mus_MainMenu
+  m_bulletWoodImpact:
+    m_eventReference:
+      Guid:
+        Data1: 1455826503
+        Data2: 1323140601
+        Data3: 427930808
+        Data4: 1058025682
+      Path: event:/Foleys/Bullet/Fol_Bullet_Impact_Wood
