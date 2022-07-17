@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{6f8f4edf-90fb-497e-81d0-e232d3dd1dae}">
+		<property name="assetPath">
+			<value>Foleys/Character/Fol_MC_Run_01.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.35431249999999997</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{9611ae63-799b-4ca7-8033-7ff5d3bfdda0}</destination>
+		</relationship>
+	</object>
+</objects>

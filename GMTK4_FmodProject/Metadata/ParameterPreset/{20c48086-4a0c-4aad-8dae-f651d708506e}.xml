@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{20c48086-4a0c-4aad-8dae-f651d708506e}">
+		<property name="name">
+			<value>DrinkedBeerQty</value>
+		</property>
+		<relationship name="folder">
+			<destination>{434bb6a3-8be6-4c6f-bd11-8f7879186f36}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{8ff7b825-98c5-44ec-a4fe-de517c2fe4d7}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{8ff7b825-98c5-44ec-a4fe-de517c2fe4d7}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

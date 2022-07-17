@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{5d716ed1-ad86-4b13-8e50-d9690d573937}">
+		<property name="assetPath">
+			<value>Voices/Vo_MC_Death_13.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>2.0004791666666666</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{9611ae63-799b-4ca7-8033-7ff5d3bfdda0}</destination>
+		</relationship>
+	</object>
+</objects>

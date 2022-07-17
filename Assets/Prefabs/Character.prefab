@@ -184,6 +184,8 @@ GameObject:
   - component: {fileID: 5910003033151645943}
   - component: {fileID: 5910003033151645945}
   - component: {fileID: 5910003033151645947}
+  - component: {fileID: 4415667443034748302}
+  - component: {fileID: 8623618596457602444}
   m_Layer: 3
   m_Name: Character
   m_TagString: Untagged
@@ -481,6 +483,135 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &4415667443034748302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5910003033151645941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ab4a245176323c4bb6590db44e7ccc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_moveFoley:
+    m_eventReference:
+      Guid:
+        Data1: 238254798
+        Data2: 1235510465
+        Data3: -1356016222
+        Data4: 220842702
+      Path: event:/Foleys/MC/Fol_MC_Move
+  m_drinkVoice:
+    m_eventReference:
+      Guid:
+        Data1: 1464512054
+        Data2: 1308805115
+        Data3: 1278810807
+        Data4: 160392153
+      Path: event:/Voices/MC/Vo_MC Drink
+  m_beerFinishedVoice:
+    m_eventReference:
+      Guid:
+        Data1: 1624148503
+        Data2: 1260828079
+        Data3: -1361819483
+        Data4: 190897927
+      Path: event:/Voices/MC/Vo_MC_BeerFinished
+  m_burpVoice:
+    m_eventReference:
+      Guid:
+        Data1: -388423673
+        Data2: 1091596890
+        Data3: -274045544
+        Data4: -664016439
+      Path: event:/Voices/MC/Vo_MC_Burp
+  m_painVoice:
+    m_eventReference:
+      Guid:
+        Data1: 1658121108
+        Data2: 1206018745
+        Data3: 19075244
+        Data4: 642428052
+      Path: event:/Voices/MC/Vo_MC_Pain
+  m_deathVoice:
+    m_eventReference:
+      Guid:
+        Data1: -223163996
+        Data2: 1340259130
+        Data3: -225605445
+        Data4: 866498639
+      Path: event:/Voices/MC/Vo_MC_Death
+  m_beerFinishedFB:
+    m_eventReference:
+      Guid:
+        Data1: 103258327
+        Data2: 1304168490
+        Data3: -2128734830
+        Data4: 634385443
+      Path: event:/SFX/SFX_FB_BeerFinished
+  m_hitFB:
+    m_eventReference:
+      Guid:
+        Data1: 1644449262
+        Data2: 1208113390
+        Data3: 1904802982
+        Data4: 300299884
+      Path: event:/SFX/SFX_FB_Hit
+  m_gunShotAudio:
+    m_eventReference:
+      Guid:
+        Data1: -1722637301
+        Data2: 1297234280
+        Data3: 757314748
+        Data4: 1671508703
+      Path: event:/Foleys/Gun/Fol_Gun_Shot
+  m_gunReloadAudio:
+    m_eventReference:
+      Guid:
+        Data1: -258360068
+        Data2: 1319988246
+        Data3: -2002359126
+        Data4: -1814499307
+      Path: event:/Foleys/Gun/Fol_Gun_Reload
+  m_doorExitAudio:
+    m_eventReference:
+      Guid:
+        Data1: -2103238307
+        Data2: 1215960566
+        Data3: -1606486630
+        Data4: 1896590477
+      Path: event:/Foleys/Door/Fol_Door_Exit
+  m_beerTake:
+    m_eventReference:
+      Guid:
+        Data1: -945921956
+        Data2: 1258239337
+        Data3: 1819656324
+        Data4: -854411686
+      Path: event:/Foleys/Beer/Fol_Beer_Grab
+  m_beerSet:
+    m_eventReference:
+      Guid:
+        Data1: -121457184
+        Data2: 1180092619
+        Data3: 178864814
+        Data4: 90239548
+      Path: event:/Foleys/Beer/Fol_Beer_Set
+--- !u!114 &8623618596457602444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5910003033151645941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
 --- !u!1 &5910003033307711837
 GameObject:
   m_ObjectHideFlags: 0
