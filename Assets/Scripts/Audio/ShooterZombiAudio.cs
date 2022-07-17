@@ -63,13 +63,19 @@ public class ShooterZombiAudio : MonoBehaviour
         }
     }
 
-    private void Bullet_OnHitObject(Bullet _bullet, Hitable _hit)
+    private void Bullet_OnHitObject(Bullet _bullet, GameObject _hit, Bullet.ContactType _type)
     {
-        if (_hit == m_zombi)
+        if (_type == Bullet.ContactType.Zombi)
         {
-            m_hitSFX.PlayOneShot(gameObject);
-            m_hitMarkerFB.PlayOneShot(gameObject);
-            m_impactFoley.PlayOneShot(gameObject);
+            if (_hit.TryGetComponent(out ShooterZombi _zombi))
+            {
+                if (_zombi == m_zombi)
+                {
+                    m_hitSFX.PlayOneShot(gameObject);
+                    m_hitMarkerFB.PlayOneShot(gameObject);
+                    m_impactFoley.PlayOneShot(gameObject);
+                }
+            }
         }
     }
 
