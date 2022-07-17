@@ -25,12 +25,15 @@ public class Bullet : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D _other)
     {
-        if (_other.TryGetComponent(out Bullet bullet))
+        if (_other.TryGetComponent(out Character character))
+        {
+            if (origin) character.Eat();
+        }
+        else if (_other.TryGetComponent(out Bullet bullet))
         {
             if (bullet.origin == origin) return;
         }
-        
-        if (_other.TryGetComponent(out Hitable hit))
+        else if (_other.TryGetComponent(out Hitable hit))
         {
             if (hit == origin) return;
                 
