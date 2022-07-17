@@ -34,6 +34,7 @@ public class AudioManager : MonoBehaviour
             FMODUnity.RuntimeManager.StudioSystem.getParameterByName("MusicStates", out value);
             Debug.Log($"Music state = {value}");
         }
+
     }
 
     private void OnDisable()
