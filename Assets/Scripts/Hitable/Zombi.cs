@@ -43,7 +43,7 @@ public class Zombi : Hitable
         m_diceGestor = GetComponentInChildren<DiceGestor>();
         m_rigidbody = GetComponent<Rigidbody2D>();
         m_character = FindObjectOfType<Character>();
-        m_seeker = FindObjectOfType<Seeker>();
+        m_seeker = GetComponent<Seeker>();
         m_diceGestor.Draw(m_diceScore);
 
         RefreshPath();
@@ -55,7 +55,6 @@ public class Zombi : Hitable
         m_character.OnDamaged += CharacterDamage;
         m_character.OnDead += DisableZombi;
     }
-
 
     private void OnDisable()
     {
@@ -80,7 +79,7 @@ public class Zombi : Hitable
     private void CharacterDamage(int _life)
     {
         DisableZombi();
-        StartCoroutine("Wait");
+        StartCoroutine(nameof(Wait));
     }
 
     private IEnumerator Wait()
